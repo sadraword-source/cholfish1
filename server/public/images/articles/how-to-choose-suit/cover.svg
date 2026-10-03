@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset="1" stop-color="#1c1c1c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgA)"/>
+  <rect x="80" y="80" width="40" height="10" rx="5" fill="#c9a24a" opacity="0.8"/>
+  <text x="80" y="360" fill="#fff" font-family="Vazirmatn, sans-serif" font-size="52" font-weight="bold">راهنمای کامل انتخاب کت‌وشلوار مردانه</text>
+  <text x="80" y="430" fill="#9a9a92" font-family="Vazirmatn, sans-serif" font-size="26">چولفیش کت استایل</text>
+  <circle cx="1000" cy="400" r="150" fill="none" stroke="#c9a24a" stroke-opacity="0.3" stroke-width="2"/>
+</svg>

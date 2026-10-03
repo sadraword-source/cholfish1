@@ -1,0 +1,36 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1118"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#d9b9c0" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#d9b9c0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+  <!-- jacket -->
+  <path d="M250 340 L305 250 L400 300 L495 250 L550 340 L560 760 L470 780 L455 560 L345 560 L330 780 L240 760 Z"
+        fill="#2a1118" stroke="#000" stroke-opacity="0.4"/>
+  <!-- lapels -->
+  <path d="M305 250 L400 300 L400 420 L345 380 Z" fill="#d9b9c0" fill-opacity="0.9"/>
+  <path d="M495 250 L400 300 L400 420 L455 380 Z" fill="#d9b9c0" fill-opacity="0.7"/>
+  <!-- tie -->
+  <path d="M388 440 L412 440 L412 640 L400 660 L388 640 Z" fill="#d9b9c0"/>
+  <!-- shirt -->
+  <path d="M345 380 L400 420 L455 380 L455 560 L400 660 L345 560 Z" fill="#e8e6e1"/>
+  <!-- trousers -->
+  <path d="M330 780 L470 780 L490 950 L430 950 L415 830 L385 830 L370 950 L310 950 Z" fill="#2a1118"/>
+  <rect x="40" y="40" width="26" height="6" rx="3" fill="#d9b9c0" opacity="0.8"/>
+  <rect x="70" y="40" width="6" height="26" rx="3" fill="#d9b9c0" opacity="0.8"/>
+  <rect x="734" y="40" width="26" height="6" rx="3" fill="#d9b9c0" opacity="0.8"/>
+  <rect x="724" y="40" width="6" height="26" rx="3" fill="#d9b9c0" opacity="0.8"/>
+  <text x="400" y="965" text-anchor="middle" fill="#9a9a92" font-family="Vazirmatn, sans-serif" font-size="26">کت‌وشلوار بورگوندی اسلیم‌فیت</text>
+</svg>

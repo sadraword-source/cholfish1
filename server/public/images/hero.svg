@@ -1,0 +1,28 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bgH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0c0c"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <radialGradient id="hg" cx="0.65" cy="0.35" r="0.5">
+      <stop offset="0" stop-color="#88888826"/>
+      <stop offset="1" stop-color="#88888800"/>
+    </radialGradient>
+    <linearGradient id="hsuit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bgH)"/>
+  <rect width="1600" height="1000" fill="url(#hg)"/>
+  <!-- suit silhouette -->
+  <path d="M640 430 L700 330 L810 400 L920 330 L980 430 L990 800 L880 820 L865 590 L755 590 L740 820 L630 800 Z" fill="url(#hsuit)" stroke="#2a2a2a" stroke-width="2"/>
+  <path d="M700 330 L810 400 L810 520 L755 470 Z" fill="#d8d5cd"/>
+  <path d="M920 330 L810 400 L810 520 L865 470 Z" fill="#b9b6ad"/>
+  <path d="M780 470 L840 470 L840 700 L810 720 L780 700 Z" fill="#d8d5cd"/>
+  <path d="M740 820 L880 820 L900 990 L840 990 L810 860 L790 860 L760 990 L720 990 Z" fill="url(#hsuit)"/>
+  <rect x="60" y="60" width="34" height="8" rx="4" fill="#c9a24a" opacity="0.9"/>
+  <rect x="98" y="60" width="8" height="34" rx="4" fill="#c9a24a" opacity="0.9"/>
+  <text x="60" y="920" fill="#3d3d3d" font-family="Vazirmatn, sans-serif" font-size="20" letter-spacing="8">SADRA</text>
+</svg>

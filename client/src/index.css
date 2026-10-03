@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    font-family: 'Vazir', 'Vazirmatn', system-ui, ui-sans-serif, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-ink;
+  }
+
+  ::selection {
+    @apply bg-ink text-white;
+  }
+}
+
+@layer components {
+  /* ---------- Layout ---------- */
+  .container-sadra {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12;
+  }
+
+  .section {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  /* ---------- Typography ---------- */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.32em] text-stone-400;
+  }
+
+  .section-title {
+    @apply text-3xl font-black leading-[1.2] tracking-tight text-ink sm:text-4xl lg:text-[2.6rem];
+  }
+
+  .section-title-lg {
+    @apply text-4xl font-black leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-6xl;
+  }
+
+  .section-subtitle {
+    @apply mt-3 max-w-2xl text-sm leading-7 text-stone-500 sm:text-base sm:leading-8;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2.5 px-8 py-4 text-[13px] font-semibold tracking-wide transition-all duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-white hover:bg-stone-800;
+  }
+
+  .btn-light {
+    @apply btn bg-white text-ink hover:bg-stone-100;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent px-4 text-stone-600 hover:text-ink;
+  }
+
+  /* دکمه‌های روی پس‌زمینه تیره */
+  .btn-on-dark {
+    @apply btn border border-white/25 text-white hover:border-white hover:bg-white hover:text-ink;
+  }
+
+  /* ---------- Forms ---------- */
+  .input {
+    @apply w-full border border-stone-200 bg-white px-4 py-3.5 text-sm text-ink outline-none transition-colors duration-300 placeholder:text-stone-400 focus:border-ink;
+  }
+
+  .label {
+    @apply mb-2 block text-[12px] font-medium tracking-wide text-stone-500;
+  }
+
+  /* ---------- Surfaces ---------- */
+  .card {
+    @apply border border-stone-200 bg-white;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 border border-stone-200 px-2.5 py-1 text-[11px] font-medium tracking-wide text-stone-600;
+  }
+
+  /* پیوند با خط زیرین نرم */
+  .link-underline {
+    @apply relative inline-block after:absolute after:-bottom-0.5 after:right-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100;
+  }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f6f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3cd;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8b5ad;
+}
+
+/* ---------- Article content ---------- */
+.article-content {
+  @apply text-[15px] leading-8 text-stone-600;
+}
+.article-content h2 {
+  @apply mb-4 mt-10 text-xl font-black text-ink;
+}
+.article-content h3 {
+  @apply mb-3 mt-8 text-lg font-bold text-ink;
+}
+.article-content p {
+  @apply mb-5;
+}
+.article-content ul {
+  @apply mb-5 space-y-2 pr-5;
+  list-style: disc;
+}
+.article-content li {
+  @apply leading-7;
+}
+.article-content strong {
+  @apply font-bold text-ink;
+}
+
+/* انیمیشن ظاهر شدن نرم */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

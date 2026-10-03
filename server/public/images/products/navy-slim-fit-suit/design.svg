@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2330"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg5)"/>
+  <!-- button design -->
+  <circle cx="400" cy="350" r="70" fill="none" stroke="#c3c9d4" stroke-width="5" opacity="0.9"/>
+  <circle cx="400" cy="350" r="34" fill="#c3c9d4"/>
+  <circle cx="400" cy="350" r="14" fill="#1c2330"/>
+  <circle cx="345" cy="470" r="16" fill="#c3c9d4" opacity="0.85"/>
+  <circle cx="455" cy="470" r="16" fill="#c3c9d4" opacity="0.85"/>
+  <line x1="400" y1="560" x2="400" y2="660" stroke="#c3c9d4" stroke-width="3" opacity="0.5"/>
+  <rect x="330" y="660" width="140" height="8" rx="4" fill="#c3c9d4" opacity="0.6"/>
+  <text x="400" y="800" text-anchor="middle" fill="#fff" font-family="Vazirmatn, sans-serif" font-size="30">طراحی مینیمال</text>
+  <text x="400" y="840" text-anchor="middle" fill="#cfcfc7" font-family="Vazirmatn, sans-serif" font-size="22">کت‌وشلوار سرمه‌ای اسلیم‌فیت</text>
+  <text x="400" y="965" text-anchor="middle" fill="#9a9a92" font-family="Vazirmatn, sans-serif" font-size="26">جزئیات طراحی</text>
+</svg>

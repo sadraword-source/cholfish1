@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+server/data/
+
+# Logs
+*.log
+npm-debug.log*
+server.log
+vite.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite
+node_modules/

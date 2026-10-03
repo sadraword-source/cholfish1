@@ -1,0 +1,24 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="suit2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9d4c9"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg2)"/>
+  <!-- jacket back -->
+  <path d="M250 340 L305 250 L400 305 L495 250 L550 340 L560 760 L470 780 L440 570 L360 570 L330 780 L240 760 Z"
+        fill="#d9d4c9"/>
+  <path d="M305 250 L400 305 L330 780" fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="3"/>
+  <path d="M495 250 L400 305 L470 780" fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="3"/>
+  <!-- center vent -->
+  <path d="M400 570 L400 780" fill="none" stroke="#4a4539" stroke-opacity="0.7" stroke-width="4"/>
+  <!-- trousers back -->
+  <path d="M330 780 L470 780 L490 950 L430 950 L415 830 L385 830 L370 950 L310 950 Z" fill="#d9d4c9"/>
+  <text x="400" y="965" text-anchor="middle" fill="#9a9a92" font-family="Vazirmatn, sans-serif" font-size="26">کت‌وشلوار عاجی کلاسیک</text>
+</svg>
