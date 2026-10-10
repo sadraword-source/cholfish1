@@ -416,7 +416,7 @@ function buildMessage(
   ctx: StyleContext,
   count: number,
   missing: string[],
-  usedFallbackBudget: boolean
+  noBudgetMatch: boolean
 ): string {
   const parts: string[] = [];
 
@@ -432,12 +432,16 @@ function buildMessage(
   let intro = `بر اساس درخواست شما برای ${occasionLabel}`;
   if (ctx.colors.length > 0) intro += ` با رنگ ${ctx.colors.join(' و ')}`;
   if (ctx.fit) intro += ` و برش ${ctx.fit}`;
-  intro += `، ${count} گزینه از کالکشن موجود فروشگاه را انتخاب کردم.`;
+  if (count > 0) {
+    intro += `، ${count} گزینه از کالکشن موجود فروشگاه را انتخاب کردم.`;
+  } else {
+    intro += '، گزینه‌ای متناسب پیدا نکردم.';
+  }
 
   if (ctx.budget) {
-    intro += ` محدودهی بودجهی شما ${ctx.budget.toLocaleString('fa-IR')} تومان در نظر گرفته شد.`;
-    if (usedFallbackBudget) {
-      intro += ' چون محصولی دقیقاً در این بازه نبود، نزدیکترین گزینههای موجود را پیشنهاد دادم.';
+    intro += ` محدوده‌ی بودجه‌ی شما ${ctx.budget.toLocaleString('fa-IR')} تومان در نظر گرفته شد.`;
+    if (noBudgetMatch) {
+      intro += ' در این بازه‌ی قیمتی محصولی موجود نیست؛ بودجه را افزایش دهید یا فیلترها را تغییر دهید.';
     }
   }
 
@@ -476,29 +480,29 @@ export async function generateStylistResponse(input: StylistRequest): Promise<St
     };
   }
 
+  // وقتی بودجه تعیین شده، فقط محصولات داخل بودجه در نظر گرفته می‌شوند
+  const budgetPool = budget ? catalog.filter((p) => p.price <= budget) : catalog;
+  const noBudgetMatch = Boolean(budget) && budgetPool.length === 0;
+
   let picks: { product: CatalogProduct; reason: string }[] = [];
 
-  // تلاش برای استفاده از LLM (در صورت پیکربندی)
-  const llm = await llmSelect(catalog, ctx, input.message);
+  // تلاش برای استفاده از LLM (در صورت پیکربندی) — فقط از میان گزینه‌های داخل بودجه
+  const llm = await llmSelect(budgetPool, ctx, input.message);
   if (llm && llm.picks.length > 0) {
     picks = llm.picks
       .map((pick) => {
-        const product = catalog.find((c) => c.id === pick.productId);
+        const product = budgetPool.find((c) => c.id === pick.productId);
         return product ? { product, reason: pick.reason } : null;
       })
       .filter((x): x is { product: CatalogProduct; reason: string } => x !== null);
   }
 
-  const ranked = catalog
+  const ranked = budgetPool
     .map((p) => scoreProduct(p, ctx))
     .sort((a, b) => b.score - a.score);
 
-  const withinBudget = budget ? ranked.filter((s) => s.product.price <= budget * 1.15) : ranked;
-  const usedFallbackBudget = Boolean(budget) && withinBudget.length === 0;
-  const pool = withinBudget.length > 0 ? withinBudget : ranked;
-
   if (picks.length === 0) {
-    picks = pool.slice(0, 4).map((s) => ({ product: s.product, reason: buildReason(s) }));
+    picks = ranked.slice(0, 4).map((s) => ({ product: s.product, reason: buildReason(s) }));
   }
 
   const recommendations: StylistRecommendation[] = picks.slice(0, 4).map((pick) => {
@@ -530,7 +534,7 @@ export async function generateStylistResponse(input: StylistRequest): Promise<St
 
   const message = llm?.message?.trim()
     ? llm.message.trim()
-    : buildMessage(ctx, recommendations.length, missingCategories, usedFallbackBudget);
+    : buildMessage(ctx, recommendations.length, missingCategories, noBudgetMatch);
 
   return {
     message,

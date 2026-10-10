@@ -5,6 +5,7 @@ import { api } from '../../lib/api';
 import { AdminMeta, AdminProductDetail } from '../../lib/types';
 import { InlineLoading } from '../../components/ui/Loading';
 import { ErrorState } from '../../components/ui/ErrorState';
+import { ImageUpload, MultiImageUpload } from '../../components/ui/ImageUpload';
 
 export default function AdminProductForm() {
   const { id } = useParams<{ id: string }>();
@@ -30,7 +31,7 @@ export default function AdminProductForm() {
   const [metaTitle, setMetaTitle] = useState('');
   const [metaDescription, setMetaDescription] = useState('');
   const [mainImage, setMainImage] = useState('');
-  const [gallery, setGallery] = useState('');
+  const [gallery, setGallery] = useState<string[]>([]);
   const [stock, setStock] = useState<Record<number, string>>({});
 
   useEffect(() => {
@@ -65,7 +66,6 @@ export default function AdminProductForm() {
               d.images
                 .filter((img) => img.image_type !== 'main')
                 .map((img) => img.url)
-                .join('\n')
             );
 
             const s: Record<number, string> = {};
@@ -95,7 +95,6 @@ export default function AdminProductForm() {
     const images = [
       ...(mainImage.trim() ? [{ url: mainImage.trim(), alt: name, imageType: 'main' as const }] : []),
       ...gallery
-        .split('\n')
         .map((u) => u.trim())
         .filter(Boolean)
         .map((url) => ({ url, alt: name, imageType: 'gallery' as const })),
@@ -228,14 +227,18 @@ export default function AdminProductForm() {
 
         <div className="card space-y-4 p-5">
           <h2 className="font-bold">تصاویر</h2>
-          <div>
-            <label className="label">تصویر اصلی (URL)</label>
-            <input className="input" dir="ltr" value={mainImage} onChange={(e) => setMainImage(e.target.value)} placeholder="/static/images/products/.../front.svg" />
-          </div>
-          <div>
-            <label className="label">گالری — هر خط یک URL</label>
-            <textarea className="input min-h-[90px]" dir="ltr" value={gallery} onChange={(e) => setGallery(e.target.value)} />
-          </div>
+          <ImageUpload
+            label="تصویر اصلی"
+            value={mainImage}
+            onChange={setMainImage}
+            hint="میتوانید تصویر را بکشید و رها کنید یا از دستگاه خود انتخاب کنید."
+          />
+          <MultiImageUpload
+            label="گالری تصاویر"
+            values={gallery}
+            onChange={setGallery}
+            hint="میتوانید چند تصویر را همزمان انتخاب یا کشیده و رها کنید."
+          />
         </div>
 
         <div className="card space-y-4 p-5">

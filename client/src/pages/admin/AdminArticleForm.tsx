@@ -5,6 +5,7 @@ import { api } from '../../lib/api';
 import { AdminMeta, AdminArticleRecord } from '../../lib/types';
 import { InlineLoading } from '../../components/ui/Loading';
 import { ErrorState } from '../../components/ui/ErrorState';
+import { ImageUpload } from '../../components/ui/ImageUpload';
 
 const CATEGORIES = ['راهنما', 'پارچه', 'استایل', 'فنی', 'اخبار'];
 
@@ -125,7 +126,7 @@ export default function AdminArticleForm() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="label">دسته‌بندی</label>
               <select className="input" value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -143,11 +144,14 @@ export default function AdminArticleForm() {
                 ))}
               </select>
             </div>
-            <div>
-              <label className="label">تصویر کاور (URL)</label>
-              <input className="input" dir="ltr" value={coverImage} onChange={(e) => setCoverImage(e.target.value)} />
-            </div>
           </div>
+
+          <ImageUpload
+            label="تصویر کاور"
+            value={coverImage}
+            onChange={setCoverImage}
+            hint="میتوانید تصویر را بکشید و رها کنید یا از دستگاه خود انتخاب کنید."
+          />
 
           <div>
             <label className="label">خلاصه</label>

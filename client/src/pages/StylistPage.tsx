@@ -44,6 +44,7 @@ export default function StylistPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME]);
   const [input, setInput] = useState('');
   const [budget, setBudget] = useState('');
+  const [priceRange, setPriceRange] = useState<{ minPrice: number; maxPrice: number } | null>(null);
   const [loading, setLoading] = useState(false);
   const [addingId, setAddingId] = useState<number | null>(null);
   const [addedIds, setAddedIds] = useState<Set<number>>(new Set());
@@ -57,10 +58,37 @@ export default function StylistPage() {
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [messages, loading]);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await api.get<{ minPrice: number; maxPrice: number }>('/stylist/price-range');
+        if (res.data && res.data.maxPrice > 0) setPriceRange(res.data);
+      } catch {
+        // نادیده گرفتن خطا؛ ورودی عددی همچنان در دسترس است
+      }
+    })();
+  }, []);
+
   const parsedBudget = (): number | null => {
     const digits = toEnDigits(budget).replace(/[^0-9]/g, '');
     const value = Number(digits);
     return Number.isFinite(value) && value > 0 ? value : null;
+  };
+
+  const maxPrice = priceRange?.maxPrice ?? 0;
+  const minPrice = priceRange?.minPrice ?? 0;
+  const budgetNumber = parsedBudget();
+  const sliderValue = budgetNumber != null && maxPrice > 0
+    ? Math.max(minPrice, Math.min(budgetNumber, maxPrice))
+    : maxPrice;
+  const isUnlimited = budgetNumber == null || (maxPrice > 0 && budgetNumber >= maxPrice);
+
+  const handleSlider = (value: number) => {
+    if (maxPrice > 0 && value >= maxPrice) {
+      setBudget('');
+      return;
+    }
+    setBudget(String(value));
   };
 
   const send = async (raw: string) => {
@@ -293,19 +321,51 @@ export default function StylistPage() {
 
             {/* ورودی بودجه و پیام */}
             <div className="p-4 sm:p-6">
-              <div className="mb-3 flex items-center gap-2">
-                <label className="text-xs text-stone-500" htmlFor="stylist-budget">
-                  بودجه (تومان، اختیاری):
-                </label>
-                <input
-                  id="stylist-budget"
-                  value={budget}
-                  onChange={(e) => setBudget(e.target.value)}
-                  placeholder="مثلاً ۵۰۰۰۰۰۰"
-                  inputMode="numeric"
-                  dir="ltr"
-                  className="input !w-40 !py-2 text-sm"
-                />
+              <div className="mb-4 border border-stone-200 bg-ivory/60 p-4">
+                <div className="flex items-center justify-between gap-2">
+                  <label htmlFor="stylist-budget-range" className="text-xs font-medium text-stone-600">
+                    حداکثر بودجه
+                  </label>
+                  <span className="text-sm font-bold text-ink">
+                    {isUnlimited ? 'بدون محدودیت' : formatPriceWithUnit(sliderValue)}
+                  </span>
+                </div>
+
+                {maxPrice > minPrice && (
+                  <input
+                    id="stylist-budget-range"
+                    type="range"
+                    min={minPrice}
+                    max={maxPrice}
+                    step={100000}
+                    value={sliderValue}
+                    onChange={(e) => handleSlider(Number(e.target.value))}
+                    dir="ltr"
+                    className="mt-3 h-2 w-full cursor-pointer accent-ink"
+                  />
+                )}
+
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] text-stone-400">یا مبلغ دقیق (تومان):</span>
+                  <input
+                    id="stylist-budget"
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    placeholder={maxPrice > 0 ? String(maxPrice) : 'مثلاً ۵۰۰۰۰۰۰'}
+                    inputMode="numeric"
+                    dir="ltr"
+                    className="input !w-40 !py-2 text-sm"
+                  />
+                  {budget && (
+                    <button
+                      type="button"
+                      onClick={() => setBudget('')}
+                      className="text-[11px] text-stone-400 hover:text-ink"
+                    >
+                      حذف محدودیت
+                    </button>
+                  )}
+                </div>
               </div>
 
               <form

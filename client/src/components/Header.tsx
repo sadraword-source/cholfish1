@@ -7,12 +7,48 @@ import { faNum } from '../lib/format';
 import BackButton from './BackButton';
 
 const NAV_ITEMS = [
-  { to: '/', label: 'خانه' },
-  { to: '/shop', label: 'فروشگاه' },
-  { to: '/stylist', label: 'استایلیست AI' },
-  { to: '/articles', label: 'مقالات' },
-  { to: '/size-guide', label: 'راهنمای سایز' },
-  { to: '/about', label: 'درباره ما' },
+  {
+    to: '/',
+    label: 'خانه',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
+    ),
+  },
+  {
+    to: '/shop',
+    label: 'فروشگاه',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 016.5 7.5h11a1.125 1.125 0 011.11 1.007z" />
+    ),
+  },
+  {
+    to: '/stylist',
+    label: 'استایلیست AI',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+    ),
+  },
+  {
+    to: '/articles',
+    label: 'مقالات',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H5.625A2.25 2.25 0 013.375 18V6A2.25 2.25 0 015.625 3.75H14.25A2.25 2.25 0 0116.5 6v9z" />
+    ),
+  },
+  {
+    to: '/size-guide',
+    label: 'راهنمای سایز',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+    ),
+  },
+  {
+    to: '/about',
+    label: 'درباره ما',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+    ),
+  },
 ];
 
 export default function Header() {
@@ -168,7 +204,26 @@ export default function Header() {
       {/* منوی موبایل */}
       {menuOpen && (
         <div className="border-t border-stone-200 bg-white lg:hidden">
-          <nav className="container-sadra flex flex-col py-2">
+          <nav className="container-sadra flex flex-col py-3">
+            {user && (
+              <div className="mb-2 flex items-center gap-3 border border-stone-100 bg-ivory/60 p-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-base font-bold text-white">
+                  {user.fullName?.trim()?.charAt(0) || '؟'}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-bold text-ink">{user.fullName}</span>
+                  <span className="block text-xs text-stone-500" dir="ltr">{user.phone}</span>
+                </span>
+                <Link
+                  to="/account"
+                  onClick={() => setMenuOpen(false)}
+                  className="shrink-0 text-xs font-semibold text-ink"
+                >
+                  حساب من
+                </Link>
+              </div>
+            )}
+
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.to}
@@ -176,38 +231,61 @@ export default function Header() {
                 end={item.to === '/'}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
-                  `border-b border-stone-100 py-3.5 text-sm font-medium tracking-wide last:border-0 ${
+                  `flex items-center gap-3 border-b border-stone-100 px-1 py-3.5 text-sm font-medium tracking-wide last:border-0 ${
                     isActive ? 'text-ink' : 'text-stone-500'
                   }`
                 }
               >
-                {item.label}
+                {({ isActive }) => (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.6}
+                      stroke="currentColor"
+                      className={`h-5 w-5 shrink-0 ${isActive ? 'text-ink' : 'text-stone-400'}`}
+                    >
+                      {item.icon}
+                    </svg>
+                    {item.label}
+                  </>
+                )}
               </NavLink>
             ))}
 
-            <div className="mt-3 border-t border-stone-200 pt-4">
+            <div className="mt-3 border-t border-stone-200 pt-2">
               {user ? (
                 <>
                   {user.role === 'admin' && (
                     <Link
                       to="/admin"
                       onClick={() => setMenuOpen(false)}
-                      className="block py-3 text-sm font-semibold text-gold-dark"
+                      className="flex items-center gap-3 px-1 py-3.5 text-sm font-semibold text-gold-dark"
                     >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor" className="h-5 w-5 shrink-0">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                      </svg>
                       پنل مدیریت
                     </Link>
                   )}
                   <Link
                     to="/account"
                     onClick={() => setMenuOpen(false)}
-                    className="block py-3 text-sm font-medium text-stone-600"
+                    className="flex items-center gap-3 px-1 py-3.5 text-sm font-medium text-stone-600"
                   >
-                    حساب کاربری ({user.fullName})
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor" className="h-5 w-5 shrink-0 text-stone-400">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                    حساب کاربری
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="block w-full py-3 text-right text-sm font-medium text-red-600"
+                    className="flex w-full items-center gap-3 px-1 py-3.5 text-right text-sm font-medium text-red-600"
                   >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor" className="h-5 w-5 shrink-0 text-red-400">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
                     خروج از حساب
                   </button>
                 </>
@@ -215,7 +293,7 @@ export default function Header() {
                 <Link
                   to="/auth"
                   onClick={() => setMenuOpen(false)}
-                  className="block py-3 text-sm font-medium text-stone-600"
+                  className="mt-2 flex items-center justify-center border border-ink px-4 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
                 >
                   ورود / ثبت‌نام
                 </Link>

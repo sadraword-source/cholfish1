@@ -1,5 +1,8 @@
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
+import multer from 'multer';
+import path from 'node:path';
+import fs from 'node:fs';
 import { db, withTransaction } from '../db/connection.js';
 import { authRequired, adminOnly, signToken, AuthenticatedRequest } from '../middlewares/auth.js';
 import {
@@ -81,6 +84,52 @@ router.post(
 //  از این‌جا به بعد فقط مدیر لاگین‌کرده
 // ============================================================
 router.use(authRequired, adminOnly);
+
+// ============================================================
+//  بارگذاری تصویر (برای محصولات، مقالات و هر جای دیگر)
+// ============================================================
+const uploadsDir = path.resolve(process.cwd(), 'public', 'uploads', 'images');
+fs.mkdirSync(uploadsDir, { recursive: true });
+
+const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'];
+
+const imageUpload = multer({
+  storage: multer.diskStorage({
+    destination: (_req, _file, cb) => cb(null, uploadsDir),
+    filename: (_req, file, cb) => {
+      const ext = path.extname(file.originalname).toLowerCase();
+      const safeExt = IMAGE_EXTENSIONS.includes(ext) ? ext : '.jpg';
+      cb(null, `img-${Date.now()}-${Math.round(Math.random() * 1e6)}${safeExt}`);
+    },
+  }),
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (_req, file, cb) => {
+    if (!ALLOWED_IMAGE_TYPES.includes(file.mimetype)) {
+      cb(new AppError('فقط تصویر (JPG، PNG، WEBP، GIF یا SVG) قابل بارگذاری است.', 400));
+      return;
+    }
+    cb(null, true);
+  },
+}).single('image');
+
+router.post(
+  '/upload',
+  (req, res, next) => {
+    imageUpload(req, res, (err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      next();
+    });
+  },
+  asyncHandler(async (req, res) => {
+    if (!req.file) throw new AppError('تصویری برای بارگذاری انتخاب نشده است.', 400);
+    const url = `/uploads/images/${req.file.filename}`;
+    res.status(201).json({ success: true, message: 'تصویر بارگذاری شد.', data: { url } });
+  })
+);
 
 function pageParams(query: Record<string, unknown>): { limit: number; offset: number } {
   const limit = Math.min(Math.max(Number(query.limit) || 20, 1), 100);

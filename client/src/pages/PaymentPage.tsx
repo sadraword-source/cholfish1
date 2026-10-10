@@ -23,6 +23,7 @@ export default function PaymentPage() {
   const [preview, setPreview] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [dragging, setDragging] = useState(false);
   const [copied, setCopied] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -92,11 +93,29 @@ export default function PaymentPage() {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const selectFile = (selected: File | null) => {
     setUploadError(null);
-    const selected = e.target.files?.[0] ?? null;
+    setPreview((old) => {
+      if (old) URL.revokeObjectURL(old);
+      return selected ? URL.createObjectURL(selected) : null;
+    });
     setFile(selected);
-    setPreview(selected ? URL.createObjectURL(selected) : null);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    selectFile(e.target.files?.[0] ?? null);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragging(false);
+    const selected = e.dataTransfer.files?.[0] ?? null;
+    if (!selected) return;
+    if (!selected.type.startsWith('image/')) {
+      setUploadError('فقط فایل تصویری قابل بارگذاری است.');
+      return;
+    }
+    selectFile(selected);
   };
 
   const handleUpload = async () => {
@@ -109,19 +128,14 @@ export default function PaymentPage() {
     try {
       const formData = new FormData();
       formData.append('receipt', file);
-      const res = await api.upload<{ receiptImageUrl: string; paymentStatus: string }>(
+      await api.upload<{ receiptImageUrl: string; paymentStatus: string }>(
         `/orders/${orderNumber}/receipt`,
         formData
       );
-      if (res.data) {
-        setOrder({ ...order, receiptImageUrl: res.data.receiptImageUrl, paymentStatus: res.data.paymentStatus });
-      }
-      setFile(null);
-      setPreview(null);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+      // پس از ثبت موفق رسید، کاربر به صفحه سفارش منتقل می‌شود
+      navigate(`/account/orders/${orderNumber}`);
     } catch (e) {
       setUploadError(e instanceof Error ? e.message : 'خطا در بارگذاری رسید');
-    } finally {
       setUploading(false);
     }
   };
@@ -212,7 +226,12 @@ export default function PaymentPage() {
 
         {/* بارگذاری رسید */}
         <div className="card mt-4 p-6">
-          <h2 className="text-base font-bold">تصویر رسید پرداخت</h2>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="text-base font-bold">تصویر رسید پرداخت</h2>
+            {!isPaid && (
+              <span className="text-xs text-stone-400">JPG، PNG یا WEBP — حداکثر ۵ مگابایت</span>
+            )}
+          </div>
 
           {hasReceipt && (
             <div
@@ -241,24 +260,71 @@ export default function PaymentPage() {
 
           {!isPaid && (
             <>
-              <p className="mt-4 text-xs text-stone-500">
-                {hasReceipt ? 'برای جایگزینی رسید، تصویر جدید را انتخاب کنید.' : 'تصویر رسید خود را انتخاب کنید.'}
-                {' '}(فرمت JPG، PNG یا WEBP — حداکثر ۵ مگابایت)
-              </p>
-              <div className="mt-3">
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/jpeg,image/png,image/webp,image/gif"
-                  onChange={handleFileChange}
-                  className="block w-full cursor-pointer border border-dashed border-stone-300 bg-white p-4 text-sm text-stone-500 file:mr-3 file:file:border-0 file:bg-black file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:border-stone-400"
-                />
+              {/* ناحیه بزرگ انتخاب / کشیدن تصویر رسید */}
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => fileInputRef.current?.click()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    fileInputRef.current?.click();
+                  }
+                }}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setDragging(true);
+                }}
+                onDragLeave={() => setDragging(false)}
+                onDrop={handleDrop}
+                className={`mt-4 flex cursor-pointer flex-col items-center justify-center gap-3 border-2 border-dashed px-6 py-10 text-center transition-colors duration-300 ${
+                  dragging ? 'border-ink bg-stone-50' : 'border-stone-300 hover:border-ink hover:bg-ivory'
+                }`}
+              >
+                <span
+                  className={`flex h-14 w-14 items-center justify-center rounded-full transition-colors duration-300 ${
+                    dragging ? 'bg-ink text-white' : 'bg-ivory text-stone-500'
+                  }`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor" className="h-7 w-7">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                </span>
+                <span className="text-sm font-bold text-ink">
+                  {hasReceipt ? 'انتخاب رسید جدید' : 'بارگذاری تصویر رسید'}
+                </span>
+                <span className="text-xs leading-6 text-stone-500">
+                  برای رفتن به گالری کلیک کنید یا تصویر را بکشید و رها کنید
+                </span>
+                {file && (
+                  <span className="mt-1 max-w-full truncate text-xs font-medium text-green-700" dir="ltr">
+                    {file.name}
+                  </span>
+                )}
               </div>
+
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp,image/gif"
+                onChange={handleFileChange}
+                className="hidden"
+              />
 
               {preview && (
                 <div className="mt-4">
-                  <p className="mb-2 text-xs text-stone-500">پیش‌نمایش رسید:</p>
-                  <img src={preview} alt="پیش‌نمایش رسید" className="max-h-56 border border-stone-200 object-contain" />
+                  <p className="mb-2 text-xs text-stone-500">پیش‌نمایش رسید</p>
+                  <div className="relative inline-block">
+                    <img src={preview} alt="پیش‌نمایش رسید" className="max-h-64 border border-stone-200 object-contain" />
+                    <button
+                      type="button"
+                      onClick={() => selectFile(null)}
+                      className="absolute -left-2 -top-2 flex h-7 w-7 items-center justify-center border border-stone-300 bg-white text-stone-500 transition-colors hover:border-red-400 hover:text-red-600"
+                      title="حذف تصویر"
+                    >
+                      ✕
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -268,22 +334,41 @@ export default function PaymentPage() {
                 type="button"
                 onClick={handleUpload}
                 disabled={uploading || !file}
-                className="btn-primary mt-4 w-full !py-3.5"
+                className="btn-primary mt-5 w-full !py-4 text-base"
               >
-                {uploading ? 'در حال بارگذاری...' : hasReceipt ? 'ارسال رسید جدید' : 'ثبت رسید پرداخت'}
+                {uploading ? (
+                  'در حال بارگذاری...'
+                ) : (
+                  <>
+                    <span>{hasReceipt ? 'ثبت رسید جدید و ادامه' : 'ثبت رسید و ادامه'}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-4 w-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </>
+                )}
               </button>
             </>
           )}
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link to={`/account/orders/${order.orderNumber}`} className="btn-primary flex-1 text-center">
-            مشاهده سفارش
-          </Link>
-          <button type="button" onClick={() => navigate('/shop')} className="btn-outline flex-1">
-            ادامه خرید
-          </button>
-        </div>
+        {isPaid && (
+          <div className="mt-6">
+            <Link to={`/account/orders/${order.orderNumber}`} className="btn-primary w-full text-center">
+              مشاهده سفارش
+            </Link>
+          </div>
+        )}
+
+        {!isPaid && hasReceipt && (
+          <p className="mt-5 text-center text-xs text-stone-500">
+            <Link
+              to={`/account/orders/${order.orderNumber}`}
+              className="font-semibold text-ink underline-offset-4 hover:underline"
+            >
+              مشاهده وضعیت سفارش
+            </Link>
+          </p>
+        )}
       </div>
     </div>
   );

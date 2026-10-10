@@ -16,6 +16,9 @@ dist/
 *.db-shm
 server/data/
 
+# Runtime uploads (receipts, admin-uploaded images)
+server/public/uploads/
+
 # Logs
 *.log
 npm-debug.log*
