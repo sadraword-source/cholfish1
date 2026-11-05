@@ -275,7 +275,7 @@ export default function ShopPage() {
           {/* فیلترهای موبایل */}
           {mobileFiltersOpen && (
             <div className="lg:hidden">
-              <div className="border border-stone-200 bg-white p-6">{renderFilters()}</div>
+              <div className="rounded-2xl border border-stone-200 bg-white p-6">{renderFilters()}</div>
             </div>
           )}
 

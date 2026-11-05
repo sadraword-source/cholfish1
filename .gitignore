@@ -24,6 +24,7 @@ server/public/uploads/
 npm-debug.log*
 server.log
 vite.log
+server/logs/
 
 # OS
 .DS_Store

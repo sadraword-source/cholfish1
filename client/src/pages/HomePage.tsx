@@ -175,7 +175,7 @@ export default function HomePage() {
 
       {error && (
         <div className="container-sadra pt-8">
-          <p className="border border-stone-200 bg-ivory p-4 text-center text-sm text-red-600">{error}</p>
+          <p className="rounded-2xl border border-stone-200 bg-ivory p-4 text-center text-sm text-red-600">{error}</p>
         </div>
       )}
 
@@ -249,7 +249,7 @@ export default function HomePage() {
                       <div
                         className="h-full w-full bg-stone-300 bg-cover bg-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
                         style={{
-                          backgroundImage: `url(${fabric.image_url ? toImageUrl(fabric.image_url) : ''})`,
+                          backgroundImage: `url(${toImageUrl(fabric.image_url ?? `/images/fabrics/${fabric.slug}.svg`)})`,
                         }}
                       />
                       <span className="absolute right-0 top-0 bg-white/90 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-ink">

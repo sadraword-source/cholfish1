@@ -269,7 +269,7 @@ export default function ProductDetailPage() {
                   ))}
                 </div>
               ) : (
-                <p className="border border-stone-200 bg-ivory p-4 text-sm text-red-600">متأسفانه این محصول در حال حاضر ناموجود است.</p>
+                <p className="rounded-xl border border-stone-200 bg-ivory p-4 text-sm text-red-600">متأسفانه این محصول در حال حاضر ناموجود است.</p>
               )}
 
               {product.outOfStockSizes.length > 0 && (
@@ -282,7 +282,7 @@ export default function ProductDetailPage() {
             {/* تعداد */}
             <div className="mt-8">
               <label className="text-sm font-semibold">تعداد</label>
-              <div className="mt-3 inline-flex items-center border border-stone-200">
+              <div className="mt-3 inline-flex items-center rounded-xl border border-stone-200">
                 <button
                   onClick={() => setQuantity((q) => Math.min(q + 1, 99))}
                   className="flex h-11 w-11 items-center justify-center text-lg text-stone-500 transition-colors duration-200 hover:text-ink"
@@ -313,8 +313,8 @@ export default function ProductDetailPage() {
               </Link>
             </div>
 
-            {message && <p className="mt-4 border border-stone-200 bg-ivory p-4 text-sm text-green-700">{message}</p>}
-            {errorMessage && <p className="mt-4 border border-stone-200 bg-ivory p-4 text-sm text-red-600">{errorMessage}</p>}
+            {message && <p className="mt-4 rounded-xl border border-stone-200 bg-ivory p-4 text-sm text-green-700">{message}</p>}
+            {errorMessage && <p className="mt-4 rounded-xl border border-stone-200 bg-ivory p-4 text-sm text-red-600">{errorMessage}</p>}
 
             {!user && (
               <p className="mt-5 text-xs text-stone-400">

@@ -80,7 +80,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-3">
-                      <div className="inline-flex items-center border border-stone-200">
+                      <div className="inline-flex items-center rounded-xl border border-stone-200">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           className="flex h-8 w-8 items-center justify-center text-stone-600 hover:bg-stone-50"

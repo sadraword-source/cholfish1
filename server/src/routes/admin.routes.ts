@@ -18,6 +18,7 @@ import {
 import { AppError } from '../middlewares/errorHandler.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { getCardNumber, setCardNumber, getCardHolder, setCardHolder } from '../utils/settings.js';
+import { LOGS_DIR } from '../utils/logger.js';
 
 const router = Router();
 
@@ -648,6 +649,58 @@ router.put(
     if (cardHolder !== undefined) await setCardHolder(cardHolder);
     const holder = await getCardHolder();
     res.json({ success: true, message: 'تنظیمات ذخیره شد.', data: { cardNumber, cardHolder: holder } });
+  })
+);
+
+// ============================================================
+//  لاگ‌های سرور
+// ============================================================
+const LOG_FILE_PATTERN = /^(app|error)-\d{4}-\d{2}-\d{2}\.log$/;
+
+router.get(
+  '/logs',
+  asyncHandler(async (_req, res) => {
+    const files: { name: string; size: number; modified: string }[] = [];
+    try {
+      const entries = await fs.promises.readdir(LOGS_DIR);
+      for (const name of entries) {
+        if (!LOG_FILE_PATTERN.test(name)) continue;
+        const stat = await fs.promises.stat(path.join(LOGS_DIR, name));
+        files.push({ name, size: stat.size, modified: stat.mtime.toISOString() });
+      }
+    } catch {
+      // پوشه لاگ هنوز ساخته نشده است
+    }
+    files.sort((a, b) => (a.name < b.name ? 1 : -1));
+    res.json({ success: true, data: files });
+  })
+);
+
+router.get(
+  '/logs/:file',
+  asyncHandler(async (req, res) => {
+    const file = req.params.file;
+    if (!LOG_FILE_PATTERN.test(file)) throw new AppError('نام فایل لاگ نامعتبر است.', 400);
+
+    const filePath = path.join(LOGS_DIR, file);
+    if (!filePath.startsWith(LOGS_DIR)) throw new AppError('مسیر نامعتبر است.', 400);
+
+    const limit = Math.min(Math.max(Number(req.query.lines) || 500, 1), 3000);
+
+    let raw = '';
+    try {
+      raw = await fs.promises.readFile(filePath, 'utf8');
+    } catch {
+      throw new AppError('فایل لاگ یافت نشد.', 404);
+    }
+
+    const allLines = raw.split('\n').filter((l) => l.length > 0);
+    const lines = allLines.slice(-limit);
+
+    res.json({
+      success: true,
+      data: { file, totalLines: allLines.length, lines, truncated: allLines.length > lines.length },
+    });
   })
 );
 

@@ -6,7 +6,7 @@ import { toImageUrl } from '../../lib/api';
 export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link to={`/articles/${article.slug}`} className="group block">
-      <div className="relative aspect-[3/2] overflow-hidden bg-stone-100">
+      <div className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-stone-100">
         <img
           src={toImageUrl(article.coverImage)}
           alt={article.title}

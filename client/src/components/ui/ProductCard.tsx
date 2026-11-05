@@ -6,14 +6,14 @@ import { toImageUrl } from '../../lib/api';
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link to={`/product/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f1ec]">
         <img
           src={toImageUrl(product.mainImage)}
           alt={`${product.name} — کت و شلوار مردانه ${product.color}`}
-          width={800}
-          height={1000}
+          width={1000}
+          height={1250}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+          className="h-full w-full object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
         />
         {product.oldPrice && (
           <span className="absolute right-0 top-0 bg-ink px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] text-white">

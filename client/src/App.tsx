@@ -33,6 +33,7 @@ import AdminOrders from './pages/admin/AdminOrders';
 import AdminOrderDetail from './pages/admin/AdminOrderDetail';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminSettings from './pages/admin/AdminSettings';
+import AdminLogs from './pages/admin/AdminLogs';
 
 export default function App() {
   return (
@@ -73,6 +74,7 @@ export default function App() {
                   <Route path="orders/:id" element={<AdminOrderDetail />} />
                   <Route path="users" element={<AdminUsers />} />
                   <Route path="settings" element={<AdminSettings />} />
+                  <Route path="logs" element={<AdminLogs />} />
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
               </Route>

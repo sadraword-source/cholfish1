@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="bg-ink text-stone-400">
       <div className="container-sadra">
         {/* بالا */}
-        <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.6fr_1fr_1fr]">
+        <div className="grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
               <img src="/logo-mark.png" alt="CAVERO" className="h-10 w-10 object-cover" />
@@ -31,15 +31,14 @@ export default function Footer() {
                 </span>
               </span>
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-7 text-stone-400">
-              {SITE_TAGLINE}. CAVERO با تمرکز بر کت‌وشلوارهای اسلیم‌فیت، پارچه ویسکوز و دوخت
-              ایتالیایی، استایل رسمی را برای نسل جدید بازتعریف می‌کند.
+            <p className="mt-4 max-w-sm text-sm leading-6 text-stone-400">
+              {SITE_TAGLINE}. کت‌وشلوارهای اسلیم‌فیت با پارچه ویسکوز و دوخت ایتالیایی.
             </p>
           </div>
 
           <div>
             <h3 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white">دسترسی سریع</h3>
-            <ul className="mt-6 space-y-3.5 text-sm">
+            <ul className="mt-4 space-y-2.5 text-sm">
               {QUICK_LINKS.map((item) => (
                 <li key={item.to}>
                   <Link
@@ -55,7 +54,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white">حساب کاربری</h3>
-            <ul className="mt-6 space-y-3.5 text-sm">
+            <ul className="mt-4 space-y-2.5 text-sm">
               {ACCOUNT_LINKS.map((item) => (
                 <li key={item.to}>
                   <Link
@@ -71,7 +70,7 @@ export default function Footer() {
         </div>
 
         {/* پایین */}
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/10 py-7 text-[11px] tracking-wide text-stone-500 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-2 border-t border-white/10 py-5 text-[11px] tracking-wide text-stone-500 sm:flex-row">
           <span>© ۱۴۰۴ CAVERO — تمامی حقوق محفوظ است.</span>
           <span className="tracking-[0.2em]">فروشگاه اینترنتی کت‌وشلوار مردانه</span>
         </div>

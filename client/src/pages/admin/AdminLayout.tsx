@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { to: '/admin/articles', label: 'مقالات', end: false },
   { to: '/admin/orders', label: 'سفارش‌ها', end: false },
   { to: '/admin/users', label: 'کاربران', end: false },
+  { to: '/admin/logs', label: 'لاگ‌ها', end: false },
   { to: '/admin/settings', label: 'تنظیمات', end: false },
 ];
 
@@ -40,14 +41,14 @@ export default function AdminLayout() {
             <img src="/logo-mark.png" alt="CAVERO" className="h-9 w-9 object-cover" />
             <span className="text-sm font-extrabold">پنل مدیریت</span>
           </div>
-          <nav className="flex gap-1 overflow-x-auto border border-stone-100 bg-white p-2 lg:flex-col">
+          <nav className="flex gap-1 overflow-x-auto rounded-2xl border border-stone-100 bg-white p-2 lg:flex-col">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 end={item.end}
                 className={({ isActive }) =>
-                  `whitespace-nowrap px-3 py-2 text-sm font-medium transition-colors ${
+                  `whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     isActive ? 'bg-black text-white' : 'text-stone-700 hover:bg-stone-100'
                   }`
                 }
@@ -57,7 +58,7 @@ export default function AdminLayout() {
             ))}
           </nav>
 
-          <div className="mt-3 hidden border border-stone-100 bg-white p-3 lg:block">
+          <div className="mt-3 hidden rounded-2xl border border-stone-100 bg-white p-3 lg:block">
             <p className="truncate text-xs text-stone-500">
               {user.fullName}
               {user.username ? ` (${user.username})` : ''}

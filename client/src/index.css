@@ -23,6 +23,17 @@
     font-family: inherit;
   }
 
+  button,
+  input,
+  select,
+  textarea {
+    @apply rounded-lg;
+  }
+
+  img {
+    @apply rounded-xl;
+  }
+
   h1,
   h2,
   h3 {
@@ -63,7 +74,7 @@
 
   /* ---------- Buttons ---------- */
   .btn {
-    @apply inline-flex select-none items-center justify-center gap-2.5 px-8 py-4 text-[13px] font-semibold tracking-wide transition-all duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-40;
+    @apply inline-flex select-none items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[13px] font-semibold tracking-wide transition-all duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-40;
   }
 
   .btn-primary {
@@ -89,7 +100,7 @@
 
   /* ---------- Forms ---------- */
   .input {
-    @apply w-full border border-stone-200 bg-white px-4 py-3.5 text-sm text-ink outline-none transition-colors duration-300 placeholder:text-stone-400 focus:border-ink;
+    @apply w-full rounded-xl border border-stone-200 bg-white px-4 py-3.5 text-sm text-ink outline-none transition-colors duration-300 placeholder:text-stone-400 focus:border-ink;
   }
 
   .label {
@@ -98,11 +109,11 @@
 
   /* ---------- Surfaces ---------- */
   .card {
-    @apply border border-stone-200 bg-white;
+    @apply rounded-2xl border border-stone-200 bg-white;
   }
 
   .badge {
-    @apply inline-flex items-center gap-1 border border-stone-200 px-2.5 py-1 text-[11px] font-medium tracking-wide text-stone-600;
+    @apply inline-flex items-center gap-1 rounded-full border border-stone-200 px-2.5 py-1 text-[11px] font-medium tracking-wide text-stone-600;
   }
 
   /* پیوند با خط زیرین نرم */
@@ -163,4 +174,57 @@
 }
 .animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---------- AI Stylist ---------- */
+.stylist-flow {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d3cd transparent;
+  scrollbar-gutter: stable;
+}
+.stylist-flow::-webkit-scrollbar {
+  width: 4px;
+}
+.stylist-flow::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stylist-flow::-webkit-scrollbar-thumb {
+  background: #d6d3cd;
+  border-radius: 9999px;
+}
+.stylist-flow::-webkit-scrollbar-thumb:hover {
+  background: #b8b5ad;
+}
+
+.stylist-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1px;
+  border-radius: 0;
+  background: #d6d3cd;
+  outline: none;
+}
+.stylist-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  cursor: pointer;
+}
+.stylist-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stylist-page .animate-fade-up {
+    animation: none;
+  }
 }

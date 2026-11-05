@@ -206,7 +206,7 @@ export default function Header() {
         <div className="border-t border-stone-200 bg-white lg:hidden">
           <nav className="container-sadra flex flex-col py-3">
             {user && (
-              <div className="mb-2 flex items-center gap-3 border border-stone-100 bg-ivory/60 p-3">
+              <div className="mb-2 flex items-center gap-3 rounded-2xl border border-stone-100 bg-ivory/60 p-3">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-base font-bold text-white">
                   {user.fullName?.trim()?.charAt(0) || '؟'}
                 </span>

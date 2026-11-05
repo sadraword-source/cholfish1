@@ -177,7 +177,7 @@ export default function PaymentPage() {
       </Helmet>
 
       <div className="mx-auto max-w-2xl">
-        <div className={`border p-6 text-center ${banner.wrapper}`}>
+        <div className={`rounded-2xl border p-6 text-center ${banner.wrapper}`}>
           <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full shadow-sm ${banner.icon}`}>
             {isPaid ? (
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-7 w-7">
@@ -235,7 +235,7 @@ export default function PaymentPage() {
 
           {hasReceipt && (
             <div
-              className={`mt-4 border p-4 ${
+              className={`mt-4 rounded-xl border p-4 ${
                 isRejected ? 'border-red-100 bg-red-50' : 'border-green-100 bg-green-50'
               }`}
             >
@@ -277,7 +277,7 @@ export default function PaymentPage() {
                 }}
                 onDragLeave={() => setDragging(false)}
                 onDrop={handleDrop}
-                className={`mt-4 flex cursor-pointer flex-col items-center justify-center gap-3 border-2 border-dashed px-6 py-10 text-center transition-colors duration-300 ${
+                className={`mt-4 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed px-6 py-10 text-center transition-colors duration-300 ${
                   dragging ? 'border-ink bg-stone-50' : 'border-stone-300 hover:border-ink hover:bg-ivory'
                 }`}
               >

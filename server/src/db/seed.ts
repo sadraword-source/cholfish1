@@ -58,18 +58,21 @@ async function seedFabricsAndFits(tx: typeof db): Promise<void> {
     {
       name: 'ویسکوز',
       slug: 'viscose',
+      image_url: '/images/fabrics/viscose.svg',
       description:
         'پارچه ویسکوز یکی از محبوب‌ترین انتخاب‌ها برای کت‌وشلوار مردانه است. نرم، سبک، لطیف و با درخشش ملایم؛ برای فصل‌های گرم و استایل‌های رسمی روزمره انتخابی ایده‌آل است. این پارچه با ترکیبی از الیاف طبیعی تهیه شده و به سادگی چروک نمی‌خورد.',
     },
     {
       name: 'ویسکوز-پلی‌استر',
       slug: 'viscose-polyester',
+      image_url: '/images/fabrics/viscose-polyester.svg',
       description:
         'ترکیب ویسکوز با پلی‌استر، پارچه‌ای مقاوم، ماندگار و با فرم‌پذیری عالی می‌سازد. این جنس برای کت‌وشلوارهایی که پوشیدن روزانه دارند بسیار مناسب است و درخشش و لطافت ویسکوز را با استحکام پلی‌استر ترکیب می‌کند.',
     },
     {
       name: 'پشم-ویسکوز',
       slug: 'wool-viscose',
+      image_url: '/images/fabrics/wool-viscose.svg',
       description:
         'ترکیب پشم و ویسکوز، تعادلی بین گرمای پشم طبیعی و لطافت ویسکوز است. این پارچه برای فصل‌های سرد، جلسات رسمی و مجالس انتخاب درجه‌یک محسوب می‌شود و ظاهری لوکس به استایل شما می‌بخشد.',
     },
@@ -81,7 +84,9 @@ async function seedFabricsAndFits(tx: typeof db): Promise<void> {
   ];
 
   for (const f of fabrics) {
-    await tx.prepare('INSERT INTO fabrics (name, slug, description) VALUES (?, ?, ?)').run(f.name, f.slug, f.description);
+    await tx
+      .prepare('INSERT INTO fabrics (name, slug, description, image_url) VALUES (?, ?, ?, ?)')
+      .run(f.name, f.slug, f.description, f.image_url);
   }
   for (const f of fits) {
     await tx.prepare('INSERT INTO fits (name, slug, description) VALUES (?, ?, ?)').run(f.name, f.slug, f.description);

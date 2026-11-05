@@ -13,6 +13,7 @@ import adminRoutes from './routes/admin.routes.js';
 import stylistRoutes from './routes/stylist.routes.js';
 import seoRoutes from './routes/seo.routes.js';
 import { errorHandler, notFound } from './middlewares/errorHandler.js';
+import { requestLogger } from './middlewares/requestLogger.js';
 
 export const app = express();
 
@@ -25,6 +26,7 @@ app.use(
 );
 
 app.use(express.json({ limit: '1mb' }));
+app.use(requestLogger);
 
 // استاتیک برای تصاویر placeholder
 const publicDir = path.resolve(path.join(process.cwd(), 'public'));

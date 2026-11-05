@@ -1,14 +1,70 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img">
   <defs>
-    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#111111"/>
-      <stop offset="1" stop-color="#1c1c1c"/>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f0f0f"/>
+      <stop offset="0.55" stop-color="#171717"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
     </linearGradient>
+    <radialGradient id="agl" cx="0.66" cy="0.34" r="0.62">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#c9a24a" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#c9a24a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bgA)"/>
-  <rect x="80" y="80" width="40" height="10" rx="5" fill="#c9a24a" opacity="0.8"/>
-  <text x="80" y="360" fill="#fff" font-family="Vazirmatn, sans-serif" font-size="52" font-weight="bold">تفاوت انواع پارچه کت‌وشلوار؛ ویسکوز، پلی‌استر و پشم</text>
-  <text x="80" y="430" fill="#9a9a92" font-family="Vazirmatn, sans-serif" font-size="26">CAVERO استایل</text>
-  <circle cx="1000" cy="400" r="150" fill="none" stroke="#c9a24a" stroke-opacity="0.3" stroke-width="2"/>
+  <rect width="1200" height="800" fill="url(#abg)"/>
+  <rect width="1200" height="800" fill="url(#agl)"/>
+  <g stroke="#ffffff" stroke-opacity="0.035" stroke-width="1">
+    <line x1="240" y1="0" x2="240" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="960" y1="0" x2="960" y2="800"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+  </g>
+  <circle cx="810" cy="410" r="250" fill="url(#aac)"/>
+  <g transform="translate(64,64)"><rect width="48" height="3" fill="#c9a24a"/><rect y="13" width="24" height="3" fill="#c9a24a" opacity="0.45"/></g>
+  <g transform="translate(1088,64)"><rect width="48" height="3" fill="#c9a24a" opacity="0.45"/><rect x="24" y="13" width="24" height="3" fill="#c9a24a"/></g>
+  <g transform="translate(64,726)" font-family="Vazirmatn, sans-serif">
+    <rect width="34" height="2" fill="#c9a24a" opacity="0.7"/>
+    <text y="24" fill="#8f8b83" font-size="14" letter-spacing="4">CAVERO</text>
+    <text y="46" fill="#565248" font-size="11" letter-spacing="3">STYLE JOURNAL</text>
+  </g>
+  
+    <g transform="translate(600,390)">
+      
+      <g transform="translate(-260,0)">
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#0b0c0e" opacity="0.55" transform="translate(6,8)"/>
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#24272c" stroke="#dcd9d1" stroke-opacity="0.85" stroke-width="2.5"/>
+        <g fill="none" stroke="#c9a24a" stroke-width="1.4" stroke-opacity="0.35"><path d="M-88 -136 C -79 -60 -97 60 -88 136"/><path d="M-69 -136 C -60 -60 -78 60 -69 136"/><path d="M-50 -136 C -41 -60 -59 60 -50 136"/><path d="M-31 -136 C -22 -60 -40 60 -31 136"/><path d="M-12 -136 C -3 -60 -21 60 -12 136"/><path d="M7 -136 C 16 -60 -2 60 7 136"/><path d="M26 -136 C 35 -60 17 60 26 136"/><path d="M45 -136 C 54 -60 36 60 45 136"/><path d="M64 -136 C 73 -60 55 60 64 136"/><path d="M83 -136 C 92 -60 74 60 83 136"/></g>
+        <g transform="translate(0,-140)">
+          <rect x="-30" y="-13" width="60" height="24" rx="4" fill="#101215" stroke="#c9a24a" stroke-opacity="0.6"/>
+          <circle cx="0" cy="-1" r="3.4" fill="none" stroke="#c9a24a" stroke-opacity="0.75"/>
+        </g>
+        <text y="180" text-anchor="middle" fill="#8f8b83" font-family="Vazirmatn, sans-serif" font-size="15" letter-spacing="3">VISCOSE</text>
+      </g>
+      
+      <g transform="translate(0,0)">
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#0b0c0e" opacity="0.55" transform="translate(6,8)"/>
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#20242a" stroke="#dcd9d1" stroke-opacity="0.85" stroke-width="2.5"/>
+        <g fill="none" stroke="#c9a24a" stroke-width="1.4" stroke-opacity="0.35"><line x1="-88" y1="-120" x2="88" y2="-120"/><line x1="-88" y1="-80" x2="88" y2="-80"/><line x1="-88" y1="-40" x2="88" y2="-40"/><line x1="-88" y1="0" x2="88" y2="0"/><line x1="-88" y1="40" x2="88" y2="40"/><line x1="-88" y1="80" x2="88" y2="80"/><line x1="-88" y1="120" x2="88" y2="120"/><line x1="-84" y1="-132" x2="-84" y2="132"/><line x1="-56" y1="-132" x2="-56" y2="132"/><line x1="-28" y1="-132" x2="-28" y2="132"/><line x1="0" y1="-132" x2="0" y2="132"/><line x1="28" y1="-132" x2="28" y2="132"/><line x1="56" y1="-132" x2="56" y2="132"/><line x1="84" y1="-132" x2="84" y2="132"/></g>
+        <g transform="translate(0,-140)">
+          <rect x="-30" y="-13" width="60" height="24" rx="4" fill="#101215" stroke="#c9a24a" stroke-opacity="0.6"/>
+          <circle cx="0" cy="-1" r="3.4" fill="none" stroke="#c9a24a" stroke-opacity="0.75"/>
+        </g>
+        <text y="180" text-anchor="middle" fill="#8f8b83" font-family="Vazirmatn, sans-serif" font-size="15" letter-spacing="3">POLYESTER</text>
+      </g>
+      
+      <g transform="translate(260,0)">
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#0b0c0e" opacity="0.55" transform="translate(6,8)"/>
+        <rect x="-100" y="-140" width="200" height="280" rx="8" fill="#26241f" stroke="#dcd9d1" stroke-opacity="0.85" stroke-width="2.5"/>
+        <g fill="none" stroke="#c9a24a" stroke-width="1.4" stroke-opacity="0.35"><path d="M-78 -118 q 9 11 2 20"/><path d="M-47 -118 q 9 11 2 20"/><path d="M-16 -118 q 9 11 2 20"/><path d="M15 -118 q 9 11 2 20"/><path d="M46 -118 q 9 11 2 20"/><path d="M77 -118 q 9 11 2 20"/><path d="M-78 -72 q 9 11 2 20"/><path d="M-47 -72 q 9 11 2 20"/><path d="M-16 -72 q 9 11 2 20"/><path d="M15 -72 q 9 11 2 20"/><path d="M46 -72 q 9 11 2 20"/><path d="M77 -72 q 9 11 2 20"/><path d="M-78 -26 q 9 11 2 20"/><path d="M-47 -26 q 9 11 2 20"/><path d="M-16 -26 q 9 11 2 20"/><path d="M15 -26 q 9 11 2 20"/><path d="M46 -26 q 9 11 2 20"/><path d="M77 -26 q 9 11 2 20"/><path d="M-78 20 q 9 11 2 20"/><path d="M-47 20 q 9 11 2 20"/><path d="M-16 20 q 9 11 2 20"/><path d="M15 20 q 9 11 2 20"/><path d="M46 20 q 9 11 2 20"/><path d="M77 20 q 9 11 2 20"/><path d="M-78 66 q 9 11 2 20"/><path d="M-47 66 q 9 11 2 20"/><path d="M-16 66 q 9 11 2 20"/><path d="M15 66 q 9 11 2 20"/><path d="M46 66 q 9 11 2 20"/><path d="M77 66 q 9 11 2 20"/></g>
+        <g transform="translate(0,-140)">
+          <rect x="-30" y="-13" width="60" height="24" rx="4" fill="#101215" stroke="#c9a24a" stroke-opacity="0.6"/>
+          <circle cx="0" cy="-1" r="3.4" fill="none" stroke="#c9a24a" stroke-opacity="0.75"/>
+        </g>
+        <text y="180" text-anchor="middle" fill="#8f8b83" font-family="Vazirmatn, sans-serif" font-size="15" letter-spacing="3">WOOL</text>
+      </g>
+    </g>
 </svg>

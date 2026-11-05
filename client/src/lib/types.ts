@@ -395,3 +395,16 @@ export interface AdminMeta {
   fits: { id: number; name: string; slug: string }[];
   sizes: { id: number; code: string; label: string }[];
 }
+
+export interface AdminLogFile {
+  name: string;
+  size: number;
+  modified: string;
+}
+
+export interface AdminLogContent {
+  file: string;
+  totalLines: number;
+  lines: string[];
+  truncated: boolean;
+}

@@ -111,7 +111,7 @@ export default function AuthPage() {
       </Helmet>
 
       <div className="w-full max-w-md px-4">
-        <div className="border border-stone-200 bg-white p-8 sm:p-10">
+        <div className="rounded-2xl border border-stone-200 bg-white p-8 sm:p-10">
           <div className="text-center">
             <img
               src="/logo-mark.png"
@@ -131,8 +131,8 @@ export default function AuthPage() {
             </p>
           </div>
 
-          {error && <p className="mt-5 border border-stone-200 bg-ivory p-3 text-sm text-red-600">{error}</p>}
-          {info && <p className="mt-5 border border-stone-200 bg-ivory p-3 text-sm text-stone-600">{info}</p>}
+          {error && <p className="mt-5 rounded-xl border border-stone-200 bg-ivory p-3 text-sm text-red-600">{error}</p>}
+          {info && <p className="mt-5 rounded-xl border border-stone-200 bg-ivory p-3 text-sm text-stone-600">{info}</p>}
 
           {step === 'phone' ? (
             <form onSubmit={handleSendOtp} className="mt-6 space-y-4">

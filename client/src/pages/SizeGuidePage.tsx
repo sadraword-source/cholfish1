@@ -71,7 +71,7 @@ export default function SizeGuidePage() {
 
       <div className="container-sadra mt-12">
         {/* جدول سایز */}
-        <div className="overflow-x-auto border border-stone-200">
+        <div className="overflow-x-auto rounded-2xl border border-stone-200">
           <table className="w-full min-w-[560px] text-sm">
             <thead>
               <tr className="bg-ink text-white">
@@ -133,7 +133,7 @@ export default function SizeGuidePage() {
               { title: 'قد آستین', desc: 'از مرکز پشت گردن تا مچ دست در امتداد بازو.' },
               { title: 'عرض شانه', desc: 'از انتهای یک شانه، پشت گردن، تا انتهای شانه دیگر.' },
             ].map((item) => (
-              <div key={item.title} className="border border-stone-100 p-6">
+              <div key={item.title} className="rounded-2xl border border-stone-100 p-6">
                 <h3 className="text-base font-bold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-stone-600">{item.desc}</p>
               </div>

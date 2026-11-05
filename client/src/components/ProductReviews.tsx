@@ -93,7 +93,7 @@ export default function ProductReviews({ slug }: { slug: string }) {
           {/* ستون خلاصه و فرم */}
           <div className="space-y-6 lg:col-span-1">
             {/* خلاصه هوش مصنوعی */}
-            <div className="border border-stone-100 bg-ivory p-5">
+            <div className="rounded-2xl border border-stone-100 bg-ivory p-5">
               <div className="flex items-center gap-2">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-ink text-[10px] font-black text-white">
                   AI
@@ -109,7 +109,7 @@ export default function ProductReviews({ slug }: { slug: string }) {
 
             {/* توزیع امتیازها */}
             {summary && total > 0 && (
-              <div className="border border-stone-100 p-5">
+              <div className="rounded-2xl border border-stone-100 p-5">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl font-black">{faNum(summary.avg.toFixed(1))}</span>
                   <div>
@@ -128,7 +128,7 @@ export default function ProductReviews({ slug }: { slug: string }) {
                         <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3 text-gold" aria-hidden="true">
                           <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1.99 5.78L10 14.77 4.8 17.5l.99-5.78-4.21-4.1 5.82-.85L10 1.5z" />
                         </svg>
-                        <div className="h-1 flex-1 overflow-hidden bg-stone-200">
+                        <div className="h-1 flex-1 overflow-hidden rounded-full bg-stone-200">
                           <div className="h-full bg-ink" style={{ width: `${(count / maxDist) * 100}%` }} />
                         </div>
                         <span className="w-6 text-left">{faNum(count)}</span>
@@ -141,7 +141,7 @@ export default function ProductReviews({ slug }: { slug: string }) {
 
             {/* فرم ثبت نظر */}
             {user ? (
-              <form onSubmit={handleSubmit} className="border border-stone-100 p-5">
+              <form onSubmit={handleSubmit} className="rounded-2xl border border-stone-100 p-5">
                 <h3 className="text-sm font-bold">{data?.myReview ? 'ویرایش نظر شما' : 'ثبت نظر شما'}</h3>
                 <div className="mt-3">
                   <label className="label">امتیاز شما</label>
@@ -168,7 +168,7 @@ export default function ProductReviews({ slug }: { slug: string }) {
                 </button>
               </form>
             ) : (
-              <div className="border border-stone-100 p-5 text-center">
+              <div className="rounded-2xl border border-stone-100 p-5 text-center">
                 <p className="text-sm text-stone-600">برای ثبت نظر و امتیاز ابتدا وارد حساب شوید.</p>
                 <Link to={`/auth?redirect=${encodeURIComponent(location.pathname)}`} className="btn-primary mt-4 w-full !py-3 text-sm">
                   ورود / ثبت‌نام
@@ -180,13 +180,13 @@ export default function ProductReviews({ slug }: { slug: string }) {
           {/* لیست نظرات */}
           <div className="lg:col-span-2">
             {!data || data.reviews.length === 0 ? (
-              <div className="border border-dashed border-stone-200 p-10 text-center">
+              <div className="rounded-2xl border border-dashed border-stone-200 p-10 text-center">
                 <p className="text-sm text-stone-500">هنوز نظری برای این محصول ثبت نشده است.</p>
               </div>
             ) : (
               <div className="space-y-4">
                 {data.reviews.map((review) => (
-                  <article key={review.id} className="border border-stone-100 p-5">
+                  <article key={review.id} className="rounded-2xl border border-stone-100 p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-bold text-white">
