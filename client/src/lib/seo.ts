@@ -1,5 +1,8 @@
+const runtimeOrigin =
+  typeof window !== 'undefined' && window.location ? window.location.origin : '';
+
 export const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || 'https://cholfishcat.ir'
+  import.meta.env.VITE_SITE_URL || runtimeOrigin || 'http://localhost:5173'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'CAVERO';

@@ -2,7 +2,7 @@
 
 هدف: بهینه‌سازی Technical SEO و On-Page SEO برای عبارت اصلی **«کت و شلوار مردانه»** و عبارت‌های مرتبط، بدون آسیب به ظاهر یا عملکرد.
 
-تاریخ: ۱۴۰۵/۰۶/۲۷ — دامنه فرضی: `https://cholfishcat.ir` (قابل تنظیم با `VITE_SITE_URL` و `SITE_URL`)
+تاریخ: ۱۴۰۵/۰۶/۲۷ — دامنه از `VITE_SITE_URL` و `SITE_URL` خوانده می‌شود.
 
 ---
 
@@ -186,7 +186,7 @@ Core Web Vitals با **throttling واقعی** (Chrome DevTools Protocol: موب
 - بررسی Core Web Vitals واقعی کاربران (CrUX)
 
 ### نیازمند اطلاعات واقعی کسب‌وکار
-- **دامنه نهایی**: `SITE_URL` و `VITE_SITE_URL` باید روی دامنه واقعی تنظیم شوند (فعلاً `cholfishcat.ir` فرض شده).
+- **دامنه نهایی**: `SITE_URL` و `VITE_SITE_URL` باید روی دامنه واقعی تنظیم شوند؛ در نبود آن، کلاینت از `window.location.origin` استفاده می‌کند.
 - **اعتبار برند/Organization schema**: آدرس، تلفن، شبکه‌های اجتماعی، `sameAs` — فقط با اطلاعات واقعی.
 - **Product schema**: در صورت وجود، `gtin`/`mpn`/`sku` واقعی و نظرات واقعی اضافه شود (فعلاً عمداً خالی).
 - **تصاویر واقعی محصول** با نام فایل معنادار و فرمت WebP/AVIF (فعلاً placeholder SVG).
