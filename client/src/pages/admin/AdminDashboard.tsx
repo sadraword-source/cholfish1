@@ -39,7 +39,7 @@ export default function AdminDashboard() {
   return (
     <div>
       <Helmet>
-        <title>داشبورد مدیریت | چولفیش کت</title>
+        <title>داشبورد مدیریت | CAVERO</title>
       </Helmet>
 
       <h1 className="text-2xl font-black">داشبورد</h1>

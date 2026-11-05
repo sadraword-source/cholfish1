@@ -2,8 +2,8 @@ export const SITE_URL = (
   import.meta.env.VITE_SITE_URL || 'https://cholfishcat.ir'
 ).replace(/\/$/, '');
 
-export const SITE_NAME = 'چولفیش کت';
-export const SITE_NAME_EN = 'CholFish Cat';
+export const SITE_NAME = 'CAVERO';
+export const SITE_NAME_EN = 'CAVERO';
 export const SITE_TAGLINE = 'کت و شلوار مردانه';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`;
 

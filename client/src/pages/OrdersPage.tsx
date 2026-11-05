@@ -50,8 +50,8 @@ export default function OrdersPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/account/orders`} />
 
-        <title>سفارش‌های من | چولفیش کت</title>
-        <meta name="description" content="لیست سفارش‌های شما در چولفیش کت" />
+        <title>سفارش‌های من | CAVERO</title>
+        <meta name="description" content="لیست سفارش‌های شما در CAVERO" />
       </Helmet>
 
       <div className="mb-8">
@@ -66,7 +66,7 @@ export default function OrdersPage() {
       ) : orders && orders.length === 0 ? (
         <EmptyState
           title="هنوز سفارشی ثبت نکرده‌اید"
-          description="اولین سفارش شما در چولفیش کت منتظر است."
+          description="اولین سفارش شما در CAVERO منتظر است."
           action={
             <Link to="/shop" className="btn-primary">
               شروع خرید

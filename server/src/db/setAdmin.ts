@@ -25,7 +25,7 @@ async function main(): Promise<void> {
   } else {
     const result = await db
       .prepare("INSERT INTO users (phone, username, full_name, password_hash, role) VALUES (?, ?, ?, ?, 'admin')")
-      .run(phone, username, 'مدیر چولفیش کت', hash);
+      .run(phone, username, 'مدیر CAVERO', hash);
     await db.prepare('INSERT INTO carts (user_id) VALUES (?)').run(Number(result.lastInsertRowid));
     console.log(`[admin] حساب مدیر ساخته شد (id=${result.lastInsertRowid})`);
   }

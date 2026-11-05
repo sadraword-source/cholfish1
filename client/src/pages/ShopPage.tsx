@@ -192,16 +192,16 @@ export default function ShopPage() {
   const activeFitName = filtersData?.fits.find((f) => f.slug === fit)?.name;
 
   const pageTitle = activeFabricName
-    ? `کت و شلوار مردانه ${activeFabricName} | خرید آنلاین — چولفیش کت`
+    ? `کت و شلوار مردانه ${activeFabricName} | خرید آنلاین — CAVERO`
     : activeFitName
-      ? `کت و شلوار مردانه ${activeFitName} | خرید آنلاین — چولفیش کت`
-      : 'خرید کت و شلوار مردانه | فروشگاه آنلاین — چولفیش کت';
+      ? `کت و شلوار مردانه ${activeFitName} | خرید آنلاین — CAVERO`
+      : 'خرید کت و شلوار مردانه | فروشگاه آنلاین — CAVERO';
 
   const pageDescription = truncate(
     activeFabricName
       ? `خرید کت و شلوار مردانه با پارچه ${activeFabricName} در مدل‌های اسلیم‌فیت و کلاسیک. قیمت مناسب، دوخت ایتالیایی و ارسال به سراسر ایران.`
       : activeFitName
-        ? `کت و شلوار مردانه ${activeFitName} در رنگ‌های مشکی، سرمه‌ای و طوسی. خرید آنلاین با قیمت مناسب و ارسال سریع از چولفیش کت.`
+        ? `کت و شلوار مردانه ${activeFitName} در رنگ‌های مشکی، سرمه‌ای و طوسی. خرید آنلاین با قیمت مناسب و ارسال سریع از CAVERO.`
         : 'خرید آنلاین کت و شلوار مردانه اسلیم‌فیت و کلاسیک با پارچه ویسکوز، ویسکوز-پلی‌استر و پشم-ویسکوز. مقایسه قیمت، راهنمای سایز و ارسال به سراسر ایران.',
     158
   );
@@ -245,7 +245,7 @@ export default function ShopPage() {
           </nav>
           <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{h1Text}</h1>
           <p className="mt-3 text-sm leading-7 text-stone-500">
-            کت و شلوارهای مردانه چولفیش کت — مینیمال، لوکس، رسمی
+            کت و شلوارهای مردانه CAVERO — مینیمال، لوکس، رسمی
           </p>
         </div>
       </div>

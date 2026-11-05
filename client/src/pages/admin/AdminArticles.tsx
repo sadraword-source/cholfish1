@@ -50,7 +50,7 @@ export default function AdminArticles() {
   return (
     <div>
       <Helmet>
-        <title>مدیریت مقالات | چولفیش کت</title>
+        <title>مدیریت مقالات | CAVERO</title>
       </Helmet>
 
       <div className="flex flex-wrap items-center justify-between gap-3">

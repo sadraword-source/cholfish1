@@ -47,8 +47,8 @@ export default function SizeGuidePage() {
   return (
     <div className="pb-20">
       <Seo
-        title="راهنمای سایز کت و شلوار مردانه | جدول سایزبندی — چولفیش کت"
-        description="جدول سایزبندی کت و شلوار مردانه (۴۴ تا ۵۸) و روش اندازه‌گیری دور سینه و دور کمر. با ابزار پیشنهاد سایز چولفیش کت، اندازه مناسب خود را دقیق پیدا کنید."
+        title="راهنمای سایز کت و شلوار مردانه | جدول سایزبندی — CAVERO"
+        description="جدول سایزبندی کت و شلوار مردانه (۴۴ تا ۵۸) و روش اندازه‌گیری دور سینه و دور کمر. با ابزار پیشنهاد سایز CAVERO، اندازه مناسب خود را دقیق پیدا کنید."
         path="/size-guide"
         keywords={['راهنمای سایز کت و شلوار مردانه', 'جدول سایز کت و شلوار', 'سایز کت و شلوار مردانه']}
         jsonLd={breadcrumbSchema([
@@ -105,7 +105,7 @@ export default function SizeGuidePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/45">ابزار هوشمند</p>
           <h2 className="mx-auto mt-4 max-w-lg text-2xl font-black tracking-tight sm:text-3xl">نمی‌دانید چه سایزی هستید؟</h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-8 text-stone-400">
-            اندازه‌های بدن خود را وارد کنید تا الگوریتم چولفیش کت سایز پیشنهادی را دقیق حساب کند.
+            اندازه‌های بدن خود را وارد کنید تا الگوریتم CAVERO سایز پیشنهادی را دقیق حساب کند.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             {user ? (

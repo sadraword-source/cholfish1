@@ -95,7 +95,7 @@ export default function Header() {
             <span className="flex flex-col leading-none">
               <span className="text-[17px] font-black tracking-tight text-ink">{SITE_NAME}</span>
               <span className="mt-1 hidden text-[9px] font-medium uppercase tracking-[0.3em] text-stone-400 sm:block">
-                CHOLFISH CAT
+                CAVERO
               </span>
             </span>
           </Link>

@@ -12,7 +12,7 @@ async function start(): Promise<void> {
   await runMigrations();
 
   app.listen(PORT, () => {
-    console.log(`[server] چولفیش کت API روی پورت ${PORT} در حال اجراست`);
+    console.log(`[server] CAVERO API روی پورت ${PORT} در حال اجراست`);
     console.log(`[server] http://localhost:${PORT}`);
     console.log(`[server] Database: ${DATABASE_INFO}`);
   });

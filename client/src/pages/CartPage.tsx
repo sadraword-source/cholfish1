@@ -28,8 +28,8 @@ export default function CartPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/cart`} />
 
-        <title>سبد خرید | چولفیش کت</title>
-        <meta name="description" content="سبد خرید فروشگاه چولفیش کت" />
+        <title>سبد خرید | CAVERO</title>
+        <meta name="description" content="سبد خرید فروشگاه CAVERO" />
       </Helmet>
 
       <div className="border-b border-stone-100 bg-ivory py-14">
@@ -43,7 +43,7 @@ export default function CartPage() {
         {items.length === 0 ? (
           <EmptyState
             title="سبد خرید شما خالی است"
-            description="هنوز محصولی به سبد اضافه نشده. کت‌وشلوارهای چولفیش کت منتظر شما هستند."
+            description="هنوز محصولی به سبد اضافه نشده. کت‌وشلوارهای CAVERO منتظر شما هستند."
             action={
               <Link to="/shop" className="btn-primary">
                 مشاهده محصولات

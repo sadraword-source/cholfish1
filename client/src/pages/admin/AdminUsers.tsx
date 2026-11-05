@@ -30,7 +30,7 @@ export default function AdminUsers() {
   return (
     <div>
       <Helmet>
-        <title>کاربران | چولفیش کت</title>
+        <title>کاربران | CAVERO</title>
       </Helmet>
 
       <h1 className="text-2xl font-black">کاربران</h1>

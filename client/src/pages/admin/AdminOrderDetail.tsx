@@ -67,7 +67,7 @@ export default function AdminOrderDetail() {
   return (
     <div>
       <Helmet>
-        <title>سفارش {order.order_number} | چولفیش کت</title>
+        <title>سفارش {order.order_number} | CAVERO</title>
       </Helmet>
 
       <div className="flex flex-wrap items-center justify-between gap-3">

@@ -1,6 +1,6 @@
-# چولفیش کت — فروشگاه اینترنتی کت‌وشلوار مردانه
+# CAVERO — فروشگاه اینترنتی کت‌وشلوار مردانه
 
-![چولفیش کت](client/public/placeholder.svg)
+![CAVERO](client/public/placeholder.svg)
 
 **«استایل رسمی، برای نسل جدید»**
 

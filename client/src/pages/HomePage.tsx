@@ -31,7 +31,7 @@ const GUIDE_ITEMS = [
   {
     title: 'انتخاب سایز کت و شلوار',
     text: 'مهم‌ترین معیار، دور سینه است؛ نه فقط قد و وزن. کت باید روی شانه‌ها کاملاً بنشیند و آستین تا مچ برسد. با',
-    linkLabel: 'راهنمای سایز چولفیش کت',
+    linkLabel: 'راهنمای سایز CAVERO',
     to: '/size-guide',
     after: 'می‌توانید اندازه‌های بدن خود را وارد کنید و سایز پیشنهادی را ببینید.',
   },
@@ -103,7 +103,7 @@ export default function HomePage() {
   return (
     <div>
       <Seo
-        title="کت و شلوار مردانه | خرید کت و شلوار شیک و رسمی — چولفیش کت"
+        title="کت و شلوار مردانه | خرید کت و شلوار شیک و رسمی — CAVERO"
         description="خرید کت و شلوار مردانه اسلیم‌فیت و کلاسیک با پارچه ویسکوز و دوخت ایتالیایی. کت و شلوار مردانه رسمی، مجلسی و دامادی در رنگ‌های مشکی، سرمه‌ای و طوسی، همراه با راهنمای سایز و ارسال به سراسر ایران."
         path="/"
         image="/logo.png"
@@ -126,7 +126,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="کت و شلوار مردانه اسلیم‌فیت چولفیش کت با پارچه ویسکوز و دوخت ایتالیایی"
+            alt="کت و شلوار مردانه اسلیم‌فیت CAVERO با پارچه ویسکوز و دوخت ایتالیایی"
             width={1600}
             height={1000}
             decoding="async"
@@ -138,13 +138,13 @@ export default function HomePage() {
         <div className="relative container-sadra py-28 lg:py-36">
           <div className="max-w-2xl animate-fade-up">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/50">
-              CHOLFISH CAT — کلکسیون رسمی
+              CAVERO — کلکسیون رسمی
             </p>
             <h1 className="mt-7 text-4xl font-black leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-[4rem] lg:leading-[1.1]">
               کت و شلوار مردانه، برای استایل رسمی و مدرن
             </h1>
             <p className="mt-7 max-w-xl text-sm leading-8 text-stone-300 sm:text-base sm:leading-9">
-              کلکسیون کت و شلوار مردانه چولفیش کت با برش اسلیم‌فیت و کلاسیک، پارچه ویسکوز و دوخت
+              کلکسیون کت و شلوار مردانه CAVERO با برش اسلیم‌فیت و کلاسیک، پارچه ویسکوز و دوخت
               ایتالیایی؛ انتخابی شیک برای جلسه‌های کاری، مجالس رسمی و استایل روزمره.
             </p>
             <div className="mt-11 flex flex-wrap items-center gap-3">
@@ -184,9 +184,9 @@ export default function HomePage() {
         <div className="container-sadra">
           <div className="mb-12 flex items-end justify-between gap-6 border-b border-stone-200 pb-7">
             <div>
-              <p className="eyebrow">منتخب چولفیش کت</p>
+              <p className="eyebrow">منتخب CAVERO</p>
               <h2 className="section-title mt-3">محبوب‌ترین کت و شلوارهای مردانه</h2>
-              <p className="section-subtitle">پرفروش‌ترین مدل‌های اسلیم‌فیت و کلاسیک چولفیش کت</p>
+              <p className="section-subtitle">پرفروش‌ترین مدل‌های اسلیم‌فیت و کلاسیک CAVERO</p>
             </div>
             <Link
               to="/shop"
@@ -343,13 +343,13 @@ export default function HomePage() {
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/45">
-                ABOUT CHOLFISH CAT
+                ABOUT CAVERO
               </p>
               <h2 className="mt-6 text-3xl font-black leading-[1.2] tracking-tight text-white sm:text-4xl lg:text-5xl">
                 برای مردی که دقیق می‌پوشد
               </h2>
               <p className="mt-6 max-w-lg text-sm leading-8 text-stone-400 sm:text-base sm:leading-9">
-                چولفیش کت با این باور متولد شد که کت و شلوار مردانه می‌تواند رسمی، مدرن و در همان حال
+                CAVERO با این باور متولد شد که کت و شلوار مردانه می‌تواند رسمی، مدرن و در همان حال
                 راحت باشد. پارچه ویسکوز را انتخاب کردیم، برش اسلیم‌فیت را استاندارد ساختیم و دوخت
                 ایتالیایی را کنار جزئیات دقیق گذاشتیم؛ نتیجه، کت و شلوارهایی است که هم در جلسه‌ی کاری
                 می‌درخشند و هم در شب‌های مهم.
@@ -358,7 +358,7 @@ export default function HomePage() {
                 to="/about"
                 className="link-underline mt-9 inline-flex items-center gap-2 text-[13px] font-semibold text-white"
               >
-                درباره چولفیش کت بیشتر بخوانید
+                درباره CAVERO بیشتر بخوانید
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-4 w-4 -scale-x-100">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>

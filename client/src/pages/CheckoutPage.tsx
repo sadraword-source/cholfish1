@@ -154,8 +154,8 @@ export default function CheckoutPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/checkout`} />
 
-        <title>ثبت سفارش | چولفیش کت</title>
-        <meta name="description" content="ثبت سفارش در فروشگاه چولفیش کت" />
+        <title>ثبت سفارش | CAVERO</title>
+        <meta name="description" content="ثبت سفارش در فروشگاه CAVERO" />
       </Helmet>
 
       <div className="border-b border-stone-100 bg-ivory py-14">

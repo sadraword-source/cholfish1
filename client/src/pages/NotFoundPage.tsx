@@ -5,8 +5,8 @@ export default function NotFoundPage() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center py-16">
       <Seo
-        title="صفحه یافت نشد (۴۰۴) | چولفیش کت"
-        description="صفحه‌ای که به دنبال آن هستید وجود ندارد یا جابه‌جا شده است. از فروشگاه کت و شلوار مردانه چولفیش کت دیدن کنید."
+        title="صفحه یافت نشد (۴۰۴) | CAVERO"
+        description="صفحه‌ای که به دنبال آن هستید وجود ندارد یا جابه‌جا شده است. از فروشگاه کت و شلوار مردانه CAVERO دیدن کنید."
         path="/404"
         noindex
       />

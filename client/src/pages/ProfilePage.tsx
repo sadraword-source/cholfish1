@@ -56,8 +56,8 @@ export default function ProfilePage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/account`} />
 
-        <title>حساب کاربری | چولفیش کت</title>
-        <meta name="description" content="حساب کاربری چولفیش کت" />
+        <title>حساب کاربری | CAVERO</title>
+        <meta name="description" content="حساب کاربری CAVERO" />
       </Helmet>
 
       <div className="mb-8">

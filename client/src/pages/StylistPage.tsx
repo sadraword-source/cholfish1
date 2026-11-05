@@ -27,7 +27,7 @@ const QUICK_PROMPTS = [
 const WELCOME: ChatMessage = {
   id: 1,
   role: 'assistant',
-  text: 'سلام! من استایلیست هوشمند چولفیش کت هستم. مناسبت، رنگ، فیت و بودجه‌ی خود را بنویسید تا از میان کت‌وشلوارهای موجود فروشگاه، بهترین استایل را برایتان انتخاب کنم.',
+  text: 'سلام! من استایلیست هوشمند CAVERO هستم. مناسبت، رنگ، فیت و بودجه‌ی خود را بنویسید تا از میان کت‌وشلوارهای موجود فروشگاه، بهترین استایل را برایتان انتخاب کنم.',
 };
 
 const FORMALITY_LABELS: Record<string, string> = {
@@ -190,17 +190,17 @@ export default function StylistPage() {
       <Helmet>
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href={`${SITE_URL}/stylist`} />
-        <title>استایلیست هوشمند | انتخاب استایل با هوش مصنوعی — چولفیش کت</title>
+        <title>استایلیست هوشمند | انتخاب استایل با هوش مصنوعی — CAVERO</title>
         <meta
           name="description"
-          content="استایلیست هوشمند چولفیش کت: مناسبت، رنگ، فیت و بودجه‌ی خود را بگویید تا بهترین کت‌وشلوار موجود فروشگاه را برایتان پیشنهاد دهد."
+          content="استایلیست هوشمند CAVERO: مناسبت، رنگ، فیت و بودجه‌ی خود را بگویید تا بهترین کت‌وشلوار موجود فروشگاه را برایتان پیشنهاد دهد."
         />
       </Helmet>
 
       <div className="bg-ink py-16 text-white">
         <div className="container-sadra">
           <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/50">AI Stylist</span>
-          <h1 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">استایلیست هوشمند چولفیش کت</h1>
+          <h1 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">استایلیست هوشمند CAVERO</h1>
           <p className="mt-4 max-w-2xl text-sm leading-8 text-white/70">
             استایل موردنظرتان را به زبان خودتان توضیح دهید؛ هوش مصنوعی از میان محصولات واقعی و موجود فروشگاه،
             بهترین ترکیب را با توجه به مناسبت، رنگ، فیت و بودجه‌ی شما انتخاب می‌کند.

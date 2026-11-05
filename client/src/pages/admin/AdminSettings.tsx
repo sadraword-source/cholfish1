@@ -63,7 +63,7 @@ export default function AdminSettings() {
   return (
     <div>
       <Helmet>
-        <title>تنظیمات | چولفیش کت</title>
+        <title>تنظیمات | CAVERO</title>
       </Helmet>
 
       <h1 className="text-2xl font-black">تنظیمات</h1>

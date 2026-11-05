@@ -143,7 +143,7 @@ export default function AdminProductForm() {
   return (
     <div>
       <Helmet>
-        <title>{isEdit ? 'ویرایش محصول' : 'محصول جدید'} | چولفیش کت</title>
+        <title>{isEdit ? 'ویرایش محصول' : 'محصول جدید'} | CAVERO</title>
       </Helmet>
 
       <div className="flex items-center justify-between gap-3">

@@ -128,7 +128,7 @@ export default function MeasurementsPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/account/measurements`} />
 
-        <title>اندازه‌ها و پیشنهاد سایز | چولفیش کت</title>
+        <title>اندازه‌ها و پیشنهاد سایز | CAVERO</title>
         <meta name="description" content="پیشنهاد سایز کت و شلوار بر اساس اندازه بدن شما" />
       </Helmet>
 

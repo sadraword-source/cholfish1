@@ -35,8 +35,8 @@ export default function ArticleDetailPage() {
     return (
       <div className="min-h-screen">
         <Seo
-          title="مقاله | چولفیش کت"
-          description="مطالعه مقاله تخصصی کت و شلوار مردانه در چولفیش کت."
+          title="مقاله | CAVERO"
+          description="مطالعه مقاله تخصصی کت و شلوار مردانه در CAVERO."
           path={`/articles/${slug ?? ''}`}
           noindex
         />
@@ -80,7 +80,7 @@ export default function ArticleDetailPage() {
   return (
     <div className="pb-20">
       <Seo
-        title={article.metaTitle ?? `${article.title} | چولفیش کت`}
+        title={article.metaTitle ?? `${article.title} | CAVERO`}
         description={truncate(article.metaDescription || article.excerpt)}
         path={articlePath}
         image={article.coverImage}

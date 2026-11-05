@@ -53,14 +53,14 @@ export default function AdminLogin() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center py-16">
       <Helmet>
-        <title>ورود مدیر | چولفیش کت</title>
+        <title>ورود مدیر | CAVERO</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <div className="w-full max-w-md px-4">
         <div className="border border-stone-100 bg-white p-8 ">
           <div className="text-center">
-            <img src="/logo-mark.png" alt="چولفیش کت" className="mx-auto h-14 w-14 object-cover" />
+            <img src="/logo-mark.png" alt="CAVERO" className="mx-auto h-14 w-14 object-cover" />
             <h1 className="mt-4 text-xl font-black">ورود به پنل مدیریت</h1>
             <p className="mt-1.5 text-sm text-stone-500">با نام کاربری و رمز عبور وارد شوید</p>
           </div>

@@ -143,7 +143,7 @@ export default function AddressesPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/account/addresses`} />
 
-        <title>آدرس‌های من | چولفیش کت</title>
+        <title>آدرس‌های من | CAVERO</title>
       </Helmet>
 
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">

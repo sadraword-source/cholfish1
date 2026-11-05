@@ -77,7 +77,7 @@ export default function OrderDetailPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/account/orders`} />
 
-        <title>جزئیات سفارش {order.orderNumber} | چولفیش کت</title>
+        <title>جزئیات سفارش {order.orderNumber} | CAVERO</title>
       </Helmet>
 
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">

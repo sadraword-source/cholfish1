@@ -23,16 +23,16 @@ export default function Footer() {
         <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.6fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <img src="/logo-mark.png" alt="چولفیش کت" className="h-10 w-10 object-cover" />
+              <img src="/logo-mark.png" alt="CAVERO" className="h-10 w-10 object-cover" />
               <span className="flex flex-col leading-none">
-                <span className="text-lg font-black tracking-tight text-white">چولفیش کت</span>
+                <span className="text-lg font-black tracking-tight text-white">CAVERO</span>
                 <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.3em] text-white/40">
-                  CHOLFISH CAT
+                  CAVERO
                 </span>
               </span>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-7 text-stone-400">
-              {SITE_TAGLINE}. چولفیش کت با تمرکز بر کت‌وشلوارهای اسلیم‌فیت، پارچه ویسکوز و دوخت
+              {SITE_TAGLINE}. CAVERO با تمرکز بر کت‌وشلوارهای اسلیم‌فیت، پارچه ویسکوز و دوخت
               ایتالیایی، استایل رسمی را برای نسل جدید بازتعریف می‌کند.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function Footer() {
 
         {/* پایین */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-white/10 py-7 text-[11px] tracking-wide text-stone-500 sm:flex-row">
-          <span>© ۱۴۰۴ چولفیش کت — تمامی حقوق محفوظ است.</span>
+          <span>© ۱۴۰۴ CAVERO — تمامی حقوق محفوظ است.</span>
           <span className="tracking-[0.2em]">فروشگاه اینترنتی کت‌وشلوار مردانه</span>
         </div>
       </div>

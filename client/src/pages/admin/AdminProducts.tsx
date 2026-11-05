@@ -50,7 +50,7 @@ export default function AdminProducts() {
   return (
     <div>
       <Helmet>
-        <title>مدیریت محصولات | چولفیش کت</title>
+        <title>مدیریت محصولات | CAVERO</title>
       </Helmet>
 
       <div className="flex flex-wrap items-center justify-between gap-3">

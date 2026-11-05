@@ -39,7 +39,7 @@ export default function AdminOrders() {
   return (
     <div>
       <Helmet>
-        <title>مدیریت سفارش‌ها | چولفیش کت</title>
+        <title>مدیریت سفارش‌ها | CAVERO</title>
       </Helmet>
 
       <h1 className="text-2xl font-black">سفارش‌ها</h1>

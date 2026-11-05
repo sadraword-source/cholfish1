@@ -33,7 +33,7 @@ if (fs.existsSync(publicDir)) {
 }
 
 app.get('/api/health', (_req, res) => {
-  res.json({ success: true, message: 'چولفیش کت API آماده است', timestamp: new Date().toISOString() });
+  res.json({ success: true, message: 'CAVERO API آماده است', timestamp: new Date().toISOString() });
 });
 
 // robots.txt و sitemap.xml (ریشه دامنه)

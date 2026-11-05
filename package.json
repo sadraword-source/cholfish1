@@ -1,8 +1,8 @@
 {
-  "name": "sadra-store",
+  "name": "cavero-store",
   "version": "1.0.0",
   "private": true,
-  "description": "چولفیش کت - فروشگاه اینترنتی کت‌وشلوار مردانه",
+  "description": "CAVERO - فروشگاه اینترنتی کت‌وشلوار مردانه",
   "workspaces": [
     "server",
     "client"

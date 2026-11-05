@@ -173,7 +173,7 @@ export default function PaymentPage() {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/payment`} />
-        <title>پرداخت سفارش {order.orderNumber} | چولفیش کت</title>
+        <title>پرداخت سفارش {order.orderNumber} | CAVERO</title>
       </Helmet>
 
       <div className="mx-auto max-w-2xl">

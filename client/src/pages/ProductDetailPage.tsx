@@ -113,14 +113,14 @@ export default function ProductDetailPage() {
   const productPath = `/product/${product.slug}`;
   const seoTitle =
     product.metaTitle ??
-    `${product.name} | کت و شلوار مردانه ${product.fabric.name} — چولفیش کت`;
+    `${product.name} | کت و شلوار مردانه ${product.fabric.name} — CAVERO`;
   const seoDescription = truncate(
     product.metaDescription ||
       `${product.name} از جنس ${product.fabric.name} با برش ${product.fit.name} و ${product.stitchingType}. ${
         product.availableSizes.length > 0
           ? `سایزهای موجود: ${product.availableSizes.map((s) => s.label).join('، ')}.`
           : 'در حال حاضر ناموجود.'
-      } قیمت ${formatPriceWithUnit(product.price)} — خرید آنلاین از چولفیش کت.`
+      } قیمت ${formatPriceWithUnit(product.price)} — خرید آنلاین از CAVERO.`
   );
 
   return (

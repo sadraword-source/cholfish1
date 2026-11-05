@@ -30,7 +30,7 @@ export default function BankCard({ cardNumber, holderName, className = '' }: Ban
             <path d="M0 6h7M0 12h7M15 6h7M15 12h7M7 0v18M15 0v18" />
           </svg>
         </div>
-        <span className="text-sm font-extrabold tracking-[0.2em] text-white">چولفیش کت</span>
+        <span className="text-sm font-extrabold tracking-[0.2em] text-white">CAVERO</span>
       </div>
 
       <p className="relative mt-8 text-[11px] tracking-widest text-white/45">شماره کارت</p>

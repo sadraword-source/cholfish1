@@ -37,7 +37,7 @@ export default function AdminLayout() {
       <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="mb-4 hidden items-center gap-2 lg:flex">
-            <img src="/logo-mark.png" alt="چولفیش کت" className="h-9 w-9 object-cover" />
+            <img src="/logo-mark.png" alt="CAVERO" className="h-9 w-9 object-cover" />
             <span className="text-sm font-extrabold">پنل مدیریت</span>
           </div>
           <nav className="flex gap-1 overflow-x-auto border border-stone-100 bg-white p-2 lg:flex-col">

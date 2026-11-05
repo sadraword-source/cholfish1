@@ -106,8 +106,8 @@ export default function AuthPage() {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`${SITE_URL}/auth`} />
 
-        <title>ورود / ثبت‌نام | چولفیش کت</title>
-        <meta name="description" content="ورود و ثبت‌نام در فروشگاه چولفیش کت با شماره موبایل." />
+        <title>ورود / ثبت‌نام | CAVERO</title>
+        <meta name="description" content="ورود و ثبت‌نام در فروشگاه CAVERO با شماره موبایل." />
       </Helmet>
 
       <div className="w-full max-w-md px-4">
@@ -115,10 +115,10 @@ export default function AuthPage() {
           <div className="text-center">
             <img
               src="/logo-mark.png"
-              alt="چولفیش کت"
+              alt="CAVERO"
               className="mx-auto h-14 w-14 object-cover"
             />
-            <p className="eyebrow mt-6">CHOLFISH CAT</p>
+            <p className="eyebrow mt-6">CAVERO</p>
             <h1 className="mt-3 text-xl font-black">
               {step === 'phone' ? 'ورود / ثبت‌نام' : 'کد تأیید'}
             </h1>
@@ -126,7 +126,7 @@ export default function AuthPage() {
               {step === 'phone'
                 ? mode === 'phone'
                   ? 'با شماره موبایل خود بدون نیاز به کد وارد شوید'
-                  : 'با شماره موبایل خود وارد فروشگاه چولفیش کت شوید'
+                  : 'با شماره موبایل خود وارد فروشگاه CAVERO شوید'
                 : `کد ۶ رقمی ارسال‌شده به ${phone.replace(/^(\d{4})(\d+)/, '$1***')}`}
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function AuthPage() {
                     : 'دریافت کد تأیید'}
               </button>
               <p className="text-center text-xs text-stone-500">
-                با ورود به چولفیش کت، <Link to="/about" className="underline">قوانین فروشگاه</Link> را می‌پذیرید.
+                با ورود به CAVERO، <Link to="/about" className="underline">قوانین فروشگاه</Link> را می‌پذیرید.
               </p>
             </form>
           ) : (

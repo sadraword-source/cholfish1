@@ -256,7 +256,7 @@ router.get(
     const reviews = rows.map((r) => ({
       id: r.id,
       userId: r.user_id,
-      userName: r.user_name?.trim() || 'کاربر چولفیش',
+      userName: r.user_name?.trim() || 'کاربر CAVERO',
       rating: r.rating,
       comment: r.comment,
       createdAt: r.created_at,
