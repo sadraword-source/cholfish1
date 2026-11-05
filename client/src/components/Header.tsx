@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { SITE_NAME } from '../lib/constants';
+import { SITE_NAME, SITE_SUBTITLE } from '../lib/constants';
 import { faNum } from '../lib/format';
 import BackButton from './BackButton';
 
@@ -95,7 +95,7 @@ export default function Header() {
             <span className="flex flex-col leading-none">
               <span className="text-[17px] font-black tracking-tight text-ink">{SITE_NAME}</span>
               <span className="mt-1 hidden text-[9px] font-medium uppercase tracking-[0.3em] text-stone-400 sm:block">
-                CAVERO
+                {SITE_SUBTITLE}
               </span>
             </span>
           </Link>

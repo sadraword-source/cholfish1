@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#111111"/>
+  <rect x="26" y="26" width="460" height="460" fill="none" stroke="#F4F1E8" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="249" y="244" text-anchor="middle" fill="#F4F1E8" font-family="Garamond, Georgia, 'Times New Roman', serif" font-size="74" font-weight="500" letter-spacing="14">CAVERO</text>
+  <line x1="196" y1="276" x2="316" y2="276" stroke="#F4F1E8" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="253" y="314" text-anchor="middle" fill="#F4F1E8" fill-opacity="0.6" font-family="'Segoe UI', Arial, sans-serif" font-size="11" letter-spacing="6.5">TAILORED MENSWEAR</text>
+</svg>

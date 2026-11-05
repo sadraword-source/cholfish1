@@ -2,6 +2,7 @@ export const API_BASE = '/api';
 export const STATIC_BASE = '/static';
 
 export const SITE_NAME = 'CAVERO';
+export const SITE_SUBTITLE = 'TAILORED MENSWEAR';
 export const SITE_TAGLINE = 'استایل رسمی، برای نسل جدید';
 export const SITE_DESCRIPTION =
   'فروشگاه اینترنتی کت و شلوار مردانه CAVERO. کت و شلوارهای اسلیم فیت با پارچه ویسکوز و دوخت ایتالیایی.';

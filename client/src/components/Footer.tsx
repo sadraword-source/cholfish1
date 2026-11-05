@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE_TAGLINE } from '../lib/constants';
+import { SITE_TAGLINE, SITE_SUBTITLE } from '../lib/constants';
 
 const QUICK_LINKS = [
   { to: '/shop', label: 'فروشگاه' },
@@ -27,7 +27,7 @@ export default function Footer() {
               <span className="flex flex-col leading-none">
                 <span className="text-lg font-black tracking-tight text-white">CAVERO</span>
                 <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.3em] text-white/40">
-                  CAVERO
+                  {SITE_SUBTITLE}
                 </span>
               </span>
             </div>
